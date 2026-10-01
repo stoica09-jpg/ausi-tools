@@ -117,13 +117,9 @@
         return String(value).trim();
     }
 
-    //Excel drops the leading 0 of phone numbers typed as numbers
+    //AUSI expects phone numbers without the leading 0
     const toPhoneString = (value) => {
-        const phone = toCellString(value);
-        if (typeof value === "number" && /^[1-9]\d{8}$/.test(phone)) {
-            return `0${phone}`;
-        }
-        return phone;
+        return toCellString(value).replace(/^0+/, "");
     }
 
     const decodeHtml = (text) => {
