@@ -8,6 +8,7 @@
 
 \defined('_JEXEC') or die;
 
+use Adrian\Component\Adrianjdownloads\Administrator\Helper\FileTypeHelper;
 use Adrian\Component\Adrianjdownloads\Administrator\Helper\StorageHelper;
 use Adrian\Component\Adrianjdownloads\Site\Helper\RouteHelper;
 use Joomla\CMS\Factory;
@@ -25,6 +26,7 @@ $showDate = (bool) $p->get('show_date', 1);
 $showCnt  = (bool) $p->get('show_count', 1);
 $showVer  = (bool) $p->get('show_version', 1);
 $showAut  = (bool) $p->get('show_author', 0);
+$showIcon = (bool) $p->get('show_type_icon', 1);
 $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
 ?>
 <div class="adrianjd adrianjd-category">
@@ -32,7 +34,7 @@ $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
         <h1><?php echo $this->escape($p->get('page_heading')); ?></h1>
     <?php endif; ?>
 
-    <?php if ($p->get('show_category_title', 1)) : ?>
+    <?php if ($p->get('show_category_title', 1) && !($p->get('show_page_heading') && $p->get('page_heading') === $this->category->title)) : ?>
         <h2 class="adrianjd-category-title"><?php echo $this->escape($this->category->title); ?></h2>
     <?php endif; ?>
 
@@ -94,7 +96,11 @@ $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
                 $detail = Route::_(RouteHelper::getDownloadRoute($item->slug, $item->catid, $item->language));
                 ?>
                 <tr>
-                    <td>
+                    <td class="adrianjd-title-cell">
+                        <?php if ($showIcon) : ?>
+                            <?php echo FileTypeHelper::icon($item->file_original ?: $item->file_name, $item->external_url); ?>
+                        <?php endif; ?>
+                        <div class="adrianjd-title-body">
                         <a class="adrianjd-title" href="<?php echo $detail; ?>"><?php echo $this->escape($item->title); ?></a>
                         <?php if ($showVer && $item->version) : ?>
                             <span class="badge bg-light text-dark">v<?php echo $this->escape($item->version); ?></span>
@@ -105,9 +111,11 @@ $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
                         <?php if ($item->description) : ?>
                             <div class="adrianjd-desc"><?php echo HTMLHelper::_('string.truncate', strip_tags($item->description), 160); ?></div>
                         <?php endif; ?>
+                        </div>
                     </td>
                     <?php if ($showSize) : ?>
-                        <td data-label="<?php echo Text::_('COM_ADRIANJDOWNLOADS_HEADING_SIZE'); ?>"><?php echo StorageHelper::formatSize($item->file_size); ?></td>
+                        <?php $size = StorageHelper::formatSize($item->file_size); ?>
+                        <td<?php if ($size !== '') : ?> data-label="<?php echo Text::_('COM_ADRIANJDOWNLOADS_HEADING_SIZE'); ?>"<?php endif; ?>><?php echo $size; ?></td>
                     <?php endif; ?>
                     <?php if ($showDate) : ?>
                         <td data-label="<?php echo Text::_('COM_ADRIANJDOWNLOADS_HEADING_DATE'); ?>"><?php echo HTMLHelper::_('date', $item->created, Text::_('DATE_FORMAT_LC4')); ?></td>

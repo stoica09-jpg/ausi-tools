@@ -8,6 +8,7 @@
 
 \defined('_JEXEC') or die;
 
+use Adrian\Component\Adrianjdownloads\Administrator\Helper\FileTypeHelper;
 use Adrian\Component\Adrianjdownloads\Administrator\Helper\StorageHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
@@ -20,6 +21,7 @@ use Joomla\CMS\Session\Session;
 
 $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->useScript('table.columns')->useScript('multiselect');
+$wa->addInlineStyle('.adrianjd-ficon-sm{width:20px;height:24px;vertical-align:middle;margin-right:.25rem}');
 
 $user      = Factory::getApplication()->getIdentity();
 $listOrder = $this->escape($this->state->get('list.ordering'));
@@ -124,11 +126,11 @@ if ($saveOrder && !empty($this->items)) {
                                 </th>
                                 <td class="small d-none d-md-table-cell">
                                     <?php if ($item->file_name) : ?>
-                                        <span class="icon-file" aria-hidden="true"></span>
+                                        <?php echo FileTypeHelper::icon($item->file_original ?: $item->file_name, '', 'adrianjd-ficon-sm'); ?>
                                         <?php echo $this->escape($item->file_original); ?>
                                         <span class="text-muted">(<?php echo StorageHelper::formatSize($item->file_size); ?>)</span>
                                     <?php elseif ($item->external_url) : ?>
-                                        <span class="icon-link" aria-hidden="true"></span>
+                                        <?php echo FileTypeHelper::icon('', $item->external_url, 'adrianjd-ficon-sm'); ?>
                                         <?php echo $this->escape(HTMLHelper::_('string.truncate', $item->external_url, 50)); ?>
                                     <?php else : ?>
                                         <span class="badge bg-warning text-dark"><?php echo Text::_('COM_ADRIANJDOWNLOADS_NO_FILE'); ?></span>

@@ -8,6 +8,7 @@
 
 \defined('_JEXEC') or die;
 
+use Adrian\Component\Adrianjdownloads\Administrator\Helper\FileTypeHelper;
 use Adrian\Component\Adrianjdownloads\Administrator\Helper\StorageHelper;
 use Adrian\Component\Adrianjdownloads\Site\Helper\RouteHelper;
 use Joomla\CMS\HTML\HTMLHelper;
@@ -24,7 +25,9 @@ $p    = $this->params;
         <h1><?php echo $this->escape($p->get('page_heading')); ?></h1>
     <?php endif; ?>
 
-    <h2 class="adrianjd-download-title"><?php echo $this->escape($item->title); ?></h2>
+    <?php if (!($p->get('show_page_heading') && $p->get('page_heading') === $item->title)) : ?>
+        <h2 class="adrianjd-download-title"><?php echo $this->escape($item->title); ?></h2>
+    <?php endif; ?>
 
     <ul class="adrianjd-meta">
         <li>
@@ -32,8 +35,14 @@ $p    = $this->params;
             <?php echo Text::_('JCATEGORY'); ?>:
             <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($item->catid)); ?>"><?php echo $this->escape($item->category_title); ?></a>
         </li>
-        <?php if ($item->file_original) : ?>
-            <li><span class="icon-file" aria-hidden="true"></span> <?php echo Text::_('COM_ADRIANJDOWNLOADS_HEADING_FILE'); ?>: <?php echo $this->escape($item->file_original); ?></li>
+        <?php if ($item->file_original || $item->external_url) : ?>
+            <li class="adrianjd-meta-file">
+                <?php if ($p->get('show_type_icon', 1)) : ?>
+                    <?php echo FileTypeHelper::icon($item->file_original ?: $item->file_name, $item->external_url); ?>
+                <?php endif; ?>
+                <span><?php echo Text::_('COM_ADRIANJDOWNLOADS_HEADING_FILE'); ?>:
+                <?php echo $this->escape($item->file_original ?: Text::_('COM_ADRIANJDOWNLOADS_TYPE_LINK')); ?></span>
+            </li>
         <?php endif; ?>
         <?php if ($p->get('show_size', 1) && $item->file_size) : ?>
             <li><?php echo Text::_('COM_ADRIANJDOWNLOADS_HEADING_SIZE'); ?>: <?php echo StorageHelper::formatSize($item->file_size); ?></li>
