@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+	<name>com_adrianjdownloads</name>
+	<author>Adrian</author>
+	<creationDate>2026-10</creationDate>
+	<copyright>(C) 2026 Adrian. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0.0</version>
+	<description>COM_ADRIANJDOWNLOADS_XML_DESCRIPTION</description>
+	<namespace path="src">Adrian\Component\Adrianjdownloads</namespace>
+	<scriptfile>script.php</scriptfile>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<files folder="site">
+		<folder>language</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<media destination="com_adrianjdownloads" folder="media">
+		<filename>joomla.asset.json</filename>
+		<folder>css</folder>
+	</media>
+
+	<administration>
+		<menu img="class:download">COM_ADRIANJDOWNLOADS</menu>
+		<submenu>
+			<menu link="option=com_adrianjdownloads&amp;view=downloads" view="downloads">COM_ADRIANJDOWNLOADS_SUBMENU_DOWNLOADS</menu>
+			<menu link="option=com_categories&amp;extension=com_adrianjdownloads" view="categories">COM_ADRIANJDOWNLOADS_SUBMENU_CATEGORIES</menu>
+		</submenu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<folder>forms</folder>
+			<folder>language</folder>
+			<folder>services</folder>
+			<folder>sql</folder>
+			<folder>src</folder>
+			<folder>tmpl</folder>
+		</files>
+	</administration>
+</extension>

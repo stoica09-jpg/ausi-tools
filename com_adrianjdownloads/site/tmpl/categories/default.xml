@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_ADRIANJDOWNLOADS_CATEGORIES_VIEW_DEFAULT_TITLE">
+		<message><![CDATA[COM_ADRIANJDOWNLOADS_CATEGORIES_VIEW_DEFAULT_DESC]]></message>
+	</layout>
+	<fields name="request">
+		<fieldset name="request">
+			<field name="id" type="category" label="COM_ADRIANJDOWNLOADS_FIELD_PARENT_CATEGORY_LABEL" extension="com_adrianjdownloads" show_root="true" default="0" />
+		</fieldset>
+	</fields>
+	<fields name="params">
+		<fieldset name="basic" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
+			<field name="show_empty_categories" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_EMPTY_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_cat_description" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_CAT_DESC_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+		</fieldset>
+	</fields>
+</metadata>

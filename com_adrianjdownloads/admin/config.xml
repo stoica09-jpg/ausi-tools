@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset name="files" label="COM_ADRIANJDOWNLOADS_CONFIG_FILES_LABEL">
+		<field name="storage_path" type="text" label="COM_ADRIANJDOWNLOADS_CONFIG_STORAGE_PATH_LABEL" description="COM_ADRIANJDOWNLOADS_CONFIG_STORAGE_PATH_DESC" default="adrianjdownloads_files" filter="path" />
+
+		<field name="allowed_extensions" type="textarea" label="COM_ADRIANJDOWNLOADS_CONFIG_ALLOWED_EXT_LABEL" description="COM_ADRIANJDOWNLOADS_CONFIG_ALLOWED_EXT_DESC" default="pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp,txt,rtf,csv,zip,rar,7z,jpg,jpeg,png,gif,mp3,mp4" rows="3" />
+
+		<field name="max_size_mb" type="number" label="COM_ADRIANJDOWNLOADS_CONFIG_MAX_SIZE_LABEL" description="COM_ADRIANJDOWNLOADS_CONFIG_MAX_SIZE_DESC" default="0" min="0" filter="float" />
+
+		<field name="delete_files" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_DELETE_FILES_LABEL" description="COM_ADRIANJDOWNLOADS_CONFIG_DELETE_FILES_DESC" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field name="inline_types" type="text" label="COM_ADRIANJDOWNLOADS_CONFIG_INLINE_LABEL" description="COM_ADRIANJDOWNLOADS_CONFIG_INLINE_DESC" default="" />
+	</fieldset>
+
+	<fieldset name="frontend" label="COM_ADRIANJDOWNLOADS_CONFIG_FRONTEND_LABEL">
+		<field name="show_category_title" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_CAT_TITLE_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_subcategories" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_SUBCATS_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_empty_categories" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_EMPTY_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_cat_description" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_CAT_DESC_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_search" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_SEARCH_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_size" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_SIZE_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_date" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_DATE_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_count" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_COUNT_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_version" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_VERSION_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_author" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_AUTHOR_LABEL" layout="joomla.form.field.radio.switcher" default="0">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="show_noauth" type="radio" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_NOAUTH_LABEL" description="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_NOAUTH_DESC" layout="joomla.form.field.radio.switcher" default="1">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field name="list_ordering" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_ORDERING_LABEL" default="ordering" validate="options">
+			<option value="ordering">COM_ADRIANJDOWNLOADS_ORDER_MANUAL</option>
+			<option value="title">COM_ADRIANJDOWNLOADS_ORDER_TITLE</option>
+			<option value="newest">COM_ADRIANJDOWNLOADS_ORDER_NEWEST</option>
+			<option value="oldest">COM_ADRIANJDOWNLOADS_ORDER_OLDEST</option>
+			<option value="downloads">COM_ADRIANJDOWNLOADS_ORDER_DOWNLOADS</option>
+		</field>
+
+		<field name="list_limit" type="number" label="COM_ADRIANJDOWNLOADS_CONFIG_LIST_LIMIT_LABEL" default="20" min="1" filter="integer" />
+	</fieldset>
+
+	<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+		<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL" validate="rules" filter="rules" component="com_adrianjdownloads" section="component" />
+	</fieldset>
+</config>
