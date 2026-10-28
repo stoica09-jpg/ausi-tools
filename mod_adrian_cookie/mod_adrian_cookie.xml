@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>MOD_ADRIAN_COOKIE</name>
+	<author>Adrian</author>
+	<creationDate>2026-10</creationDate>
+	<copyright>(C) 2026 Adrian. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_ADRIAN_COOKIE_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_adrian_cookie">mod_adrian_cookie.php</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<media destination="mod_adrian_cookie" folder="media">
+		<filename>joomla.asset.json</filename>
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_adrian_cookie.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_adrian_cookie.sys.ini</language>
+		<language tag="ro-RO">ro-RO/ro-RO.mod_adrian_cookie.ini</language>
+		<language tag="ro-RO">ro-RO/ro-RO.mod_adrian_cookie.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="message"
+					type="editor"
+					label="MOD_ADRIAN_COOKIE_FIELD_MESSAGE_LABEL"
+					description="MOD_ADRIAN_COOKIE_FIELD_MESSAGE_DESC"
+					filter="safehtml"
+					buttons="false"
+					height="200"
+				/>
+				<field
+					name="accept_text"
+					type="text"
+					label="MOD_ADRIAN_COOKIE_FIELD_ACCEPT_TEXT_LABEL"
+					description="MOD_ADRIAN_COOKIE_FIELD_ACCEPT_TEXT_DESC"
+					filter="string"
+					default=""
+				/>
+				<field
+					name="essential_text"
+					type="text"
+					label="MOD_ADRIAN_COOKIE_FIELD_ESSENTIAL_TEXT_LABEL"
+					description="MOD_ADRIAN_COOKIE_FIELD_ESSENTIAL_TEXT_DESC"
+					filter="string"
+					default=""
+				/>
+				<field
+					name="policy_url"
+					type="url"
+					label="MOD_ADRIAN_COOKIE_FIELD_POLICY_URL_LABEL"
+					description="MOD_ADRIAN_COOKIE_FIELD_POLICY_URL_DESC"
+					filter="url"
+					validate="url"
+					relative="true"
+					default=""
+				/>
+				<field
+					name="policy_text"
+					type="text"
+					label="MOD_ADRIAN_COOKIE_FIELD_POLICY_TEXT_LABEL"
+					filter="string"
+					default=""
+					showon="policy_url!:"
+				/>
+				<field
+					name="bg_color"
+					type="color"
+					label="MOD_ADRIAN_COOKIE_FIELD_BG_COLOR_LABEL"
+					default="#1f2937"
+				/>
+				<field
+					name="text_color"
+					type="color"
+					label="MOD_ADRIAN_COOKIE_FIELD_TEXT_COLOR_LABEL"
+					default="#ffffff"
+				/>
+				<field
+					name="position"
+					type="list"
+					label="MOD_ADRIAN_COOKIE_FIELD_POSITION_LABEL"
+					default="bottom"
+					validate="options"
+				>
+					<option value="bottom">MOD_ADRIAN_COOKIE_POSITION_BOTTOM</option>
+					<option value="top">MOD_ADRIAN_COOKIE_POSITION_TOP</option>
+					<option value="float-left">MOD_ADRIAN_COOKIE_POSITION_FLOAT_LEFT</option>
+					<option value="float-right">MOD_ADRIAN_COOKIE_POSITION_FLOAT_RIGHT</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					class="form-select"
+					validate="moduleLayout"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
