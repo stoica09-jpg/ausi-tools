@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "mod_adrian_accessibility_tools",
+  "version": "1.0.0",
+  "description": "Adrian Accessibility Tools - WCAG accessibility widget",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "mod_adrian_accessibility_tools",
+      "type": "style",
+      "uri": "mod_adrian_accessibility_tools/accessibility.css"
+    },
+    {
+      "name": "mod_adrian_accessibility_tools",
+      "type": "script",
+      "uri": "mod_adrian_accessibility_tools/accessibility.js",
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}

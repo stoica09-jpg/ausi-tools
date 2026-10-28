@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "mod_adrian_cookie",
+  "version": "1.0.0",
+  "description": "Adrian Cookie - EU cookie consent banner",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "mod_adrian_cookie",
+      "type": "style",
+      "uri": "mod_adrian_cookie/cookie.css"
+    },
+    {
+      "name": "mod_adrian_cookie",
+      "type": "script",
+      "uri": "mod_adrian_cookie/cookie.js",
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}

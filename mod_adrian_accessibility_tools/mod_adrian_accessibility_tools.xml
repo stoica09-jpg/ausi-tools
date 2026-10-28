@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>MOD_ADRIAN_ACCESSIBILITY_TOOLS</name>
+	<author>Adrian</author>
+	<creationDate>2026-10</creationDate>
+	<copyright>(C) 2026 Adrian. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_ADRIAN_ACCESSIBILITY_TOOLS_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_adrian_accessibility_tools">mod_adrian_accessibility_tools.php</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<media destination="mod_adrian_accessibility_tools" folder="media">
+		<filename>joomla.asset.json</filename>
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_adrian_accessibility_tools.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_adrian_accessibility_tools.sys.ini</language>
+		<language tag="ro-RO">ro-RO/ro-RO.mod_adrian_accessibility_tools.ini</language>
+		<language tag="ro-RO">ro-RO/ro-RO.mod_adrian_accessibility_tools.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="spacer" name="tools_spacer" label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_SPACER_TOOLS" />
+				<field
+					name="invert"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_INVERT_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="monochrome"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_MONOCHROME_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="dark_contrast"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_DARK_CONTRAST_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="light_contrast"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_LIGHT_CONTRAST_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="highlight_links"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_HIGHLIGHT_LINKS_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="highlight_headings"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_HIGHLIGHT_HEADINGS_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="text_size"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_TEXT_SIZE_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="readable_font"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_READABLE_FONT_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="reset"
+					type="radio"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_RESET_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="1"
+					filter="integer"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field type="spacer" name="look_spacer" hr="true" />
+				<field
+					name="position"
+					type="list"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_POSITION_LABEL"
+					default="right"
+					validate="options"
+				>
+					<option value="right">MOD_ADRIAN_ACCESSIBILITY_TOOLS_POSITION_RIGHT</option>
+					<option value="left">MOD_ADRIAN_ACCESSIBILITY_TOOLS_POSITION_LEFT</option>
+				</field>
+				<field
+					name="theme_color"
+					type="color"
+					label="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_THEME_COLOR_LABEL"
+					description="MOD_ADRIAN_ACCESSIBILITY_TOOLS_FIELD_THEME_COLOR_DESC"
+					default="#0b57d0"
+				/>
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					class="form-select"
+					validate="moduleLayout"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

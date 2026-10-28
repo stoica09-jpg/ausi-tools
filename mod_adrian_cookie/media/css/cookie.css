@@ -1,0 +1,214 @@
+/**
+ * Adrian Cookie - EU cookie consent banner
+ */
+.adrian-cookie {
+	--adrian-cookie-bg: #1f2937;
+	--adrian-cookie-text: #ffffff;
+	--adrian-cookie-radius: 12px;
+	--adrian-cookie-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+	--adrian-cookie-duration: 0.45s;
+
+	position: fixed;
+	z-index: 99999;
+	box-sizing: border-box;
+	background: var(--adrian-cookie-bg);
+	color: var(--adrian-cookie-text);
+	box-shadow: var(--adrian-cookie-shadow);
+	font-size: 15px;
+	line-height: 1.5;
+	opacity: 0;
+	transition:
+		transform var(--adrian-cookie-duration) cubic-bezier(0.22, 1, 0.36, 1),
+		opacity var(--adrian-cookie-duration) ease;
+}
+
+.adrian-cookie[hidden] {
+	display: none !important;
+}
+
+.adrian-cookie *,
+.adrian-cookie *::before,
+.adrian-cookie *::after {
+	box-sizing: border-box;
+}
+
+/* ---------- Positions ---------- */
+
+.adrian-cookie--bottom,
+.adrian-cookie--top {
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+.adrian-cookie--bottom {
+	bottom: 0;
+	transform: translateY(100%);
+}
+
+.adrian-cookie--top {
+	top: 0;
+	transform: translateY(-100%);
+}
+
+.adrian-cookie--float-left,
+.adrian-cookie--float-right {
+	bottom: 20px;
+	width: 380px;
+	max-width: calc(100vw - 40px);
+	border-radius: var(--adrian-cookie-radius);
+	transform: translateY(40px);
+}
+
+.adrian-cookie--float-left {
+	left: 20px;
+}
+
+.adrian-cookie--float-right {
+	right: 20px;
+}
+
+.adrian-cookie.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* ---------- Content ---------- */
+
+.adrian-cookie__inner {
+	display: flex;
+	align-items: center;
+	gap: 16px 24px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 18px 24px;
+}
+
+.adrian-cookie--float-left .adrian-cookie__inner,
+.adrian-cookie--float-right .adrian-cookie__inner {
+	flex-direction: column;
+	align-items: stretch;
+	padding: 20px;
+}
+
+.adrian-cookie__message {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.adrian-cookie__message p {
+	margin: 0 0 0.5em;
+}
+
+.adrian-cookie__message p:last-of-type {
+	margin-bottom: 0;
+}
+
+.adrian-cookie__message a,
+.adrian-cookie__policy {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.adrian-cookie__policy {
+	display: inline-block;
+	margin-top: 0.35em;
+	font-weight: 600;
+}
+
+.adrian-cookie__actions {
+	display: flex;
+	flex: 0 0 auto;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.adrian-cookie--float-left .adrian-cookie__actions,
+.adrian-cookie--float-right .adrian-cookie__actions {
+	justify-content: flex-end;
+}
+
+.adrian-cookie__btn {
+	appearance: none;
+	margin: 0;
+	padding: 10px 20px;
+	border: 2px solid var(--adrian-cookie-text);
+	border-radius: 999px;
+	font: inherit;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.adrian-cookie__btn:hover {
+	opacity: 0.88;
+}
+
+.adrian-cookie__btn:active {
+	transform: scale(0.97);
+}
+
+.adrian-cookie__btn:focus-visible,
+.adrian-cookie__policy:focus-visible {
+	outline: 3px solid var(--adrian-cookie-text);
+	outline-offset: 3px;
+}
+
+/* "Accept all" is the filled button: colours swapped from the banner. */
+.adrian-cookie__btn--accept {
+	background: var(--adrian-cookie-text);
+	color: var(--adrian-cookie-bg);
+}
+
+.adrian-cookie__btn--essential {
+	background: transparent;
+	color: var(--adrian-cookie-text);
+}
+
+.adrian-cookie__sr-only {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 767.98px) {
+	.adrian-cookie__inner {
+		flex-direction: column;
+		align-items: stretch;
+		padding: 16px;
+	}
+
+	.adrian-cookie--float-left,
+	.adrian-cookie--float-right {
+		left: 10px;
+		right: 10px;
+		bottom: 10px;
+		width: auto;
+		max-width: none;
+	}
+
+	.adrian-cookie__actions {
+		flex-direction: column-reverse;
+	}
+
+	.adrian-cookie__btn {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.adrian-cookie,
+	.adrian-cookie__btn {
+		transition: none;
+	}
+}
