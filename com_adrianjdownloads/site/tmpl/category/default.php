@@ -27,6 +27,7 @@ $showCnt  = (bool) $p->get('show_count', 1);
 $showVer  = (bool) $p->get('show_version', 1);
 $showAut  = (bool) $p->get('show_author', 0);
 $showIcon = (bool) $p->get('show_type_icon', 1);
+$direct   = $p->get('title_link', 'download') === 'download';
 $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
 ?>
 <div class="adrianjd adrianjd-category">
@@ -94,6 +95,7 @@ $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
             <?php foreach ($this->items as $item) :
                 $canDl  = !$item->require_login || !$isGuest;
                 $detail = Route::_(RouteHelper::getDownloadRoute($item->slug, $item->catid, $item->language));
+                $file   = Route::_(RouteHelper::getFileRoute($item->slug, $item->catid, $item->language));
                 ?>
                 <tr>
                     <td class="adrianjd-title-cell">
@@ -101,7 +103,11 @@ $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
                             <?php echo FileTypeHelper::icon($item->file_original ?: $item->file_name, $item->external_url); ?>
                         <?php endif; ?>
                         <div class="adrianjd-title-body">
-                        <a class="adrianjd-title" href="<?php echo $detail; ?>"><?php echo $this->escape($item->title); ?></a>
+                        <?php if ($direct) : ?>
+                            <a class="adrianjd-title" href="<?php echo $file; ?>" rel="nofollow"><?php echo $this->escape($item->title); ?></a>
+                        <?php else : ?>
+                            <a class="adrianjd-title" href="<?php echo $detail; ?>"><?php echo $this->escape($item->title); ?></a>
+                        <?php endif; ?>
                         <?php if ($showVer && $item->version) : ?>
                             <span class="badge bg-light text-dark">v<?php echo $this->escape($item->version); ?></span>
                         <?php endif; ?>
@@ -109,7 +115,12 @@ $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
                             <div class="small text-muted"><?php echo $this->escape($item->author); ?></div>
                         <?php endif; ?>
                         <?php if ($item->description) : ?>
-                            <div class="adrianjd-desc"><?php echo HTMLHelper::_('string.truncate', strip_tags($item->description), 160); ?></div>
+                            <div class="adrianjd-desc">
+                                <?php echo HTMLHelper::_('string.truncate', strip_tags($item->description), 160); ?>
+                                <?php if ($direct) : ?>
+                                    <a class="adrianjd-details-link" href="<?php echo $detail; ?>"><?php echo Text::_('COM_ADRIANJDOWNLOADS_DETAILS'); ?></a>
+                                <?php endif; ?>
+                            </div>
                         <?php endif; ?>
                         </div>
                     </td>
@@ -125,7 +136,7 @@ $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
                     <?php endif; ?>
                     <td class="text-end">
                         <?php if ($canDl) : ?>
-                            <a class="btn btn-sm btn-success" href="<?php echo Route::_(RouteHelper::getFileRoute($item->slug, $item->catid, $item->language)); ?>" rel="nofollow">
+                            <a class="btn btn-sm btn-success" href="<?php echo $file; ?>" rel="nofollow">
                                 <span class="icon-download" aria-hidden="true"></span> <?php echo Text::_('COM_ADRIANJDOWNLOADS_DOWNLOAD'); ?>
                             </a>
                         <?php elseif ($p->get('show_noauth', 1)) : ?>

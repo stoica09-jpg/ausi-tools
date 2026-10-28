@@ -5,7 +5,7 @@
 Componentă Joomla pentru gestionarea fișierelor de descărcat, după modelul jDownloads.
 Funcționează pe **Joomla 4.4+, 5.x** (PHP 8.1+). Interfața este în **română și engleză**.
 
-Pachetul instalabil: [`dist/com_adrianjdownloads-1.0.2.zip`](dist/com_adrianjdownloads-1.0.2.zip)
+Pachetul instalabil: [`dist/com_adrianjdownloads-1.0.3.zip`](dist/com_adrianjdownloads-1.0.3.zip)
 
 ### Ce face
 
@@ -16,6 +16,8 @@ Pachetul instalabil: [`dist/com_adrianjdownloads-1.0.2.zip`](dist/com_adrianjdow
   La publicare puteți bifa **„Doar pentru utilizatori conectați”**: vizitatorii văd fișierul în listă,
   dar sunt trimiși la autentificare când încearcă să-l descarce. Cine *vede* fișierul se alege cu
   câmpul „Acces (vizualizare)”.
+- **Click pe titlu = descărcare directă** (implicit). Din Opțiuni se poate alege ca titlul să deschidă
+  pagina de detalii; la fișierele cu descriere apare și un link mic „Detalii”.
 - **Iconițe după tipul fișierului**, văzute de vizitatori și în administrare: PDF, Word, Excel,
   PowerPoint, arhivă (zip/rar/7z), imagine, audio, video, text și link extern. Pot fi ascunse din Opțiuni.
 - **Link extern** în loc de fișier (descărcarea se numără și în acest caz).
@@ -33,7 +35,7 @@ Pachetul instalabil: [`dist/com_adrianjdownloads-1.0.2.zip`](dist/com_adrianjdow
 
 ### Instalare
 
-1. Administrare Joomla → **Sistem → Instalare → Extensii** → încărcați `com_adrianjdownloads-1.0.2.zip`.
+1. Administrare Joomla → **Sistem → Instalare → Extensii** → încărcați `com_adrianjdownloads-1.0.3.zip`.
 2. **Componente → Adrian jDownloads → Categorii**: creați categoriile.
 3. **Componente → Adrian jDownloads → Fișiere → Nou**: încărcați fișierele.
 4. **Meniuri → Meniul principal → Nou** → tip *Adrian jDownloads* → alegeți „Lista tuturor categoriilor”

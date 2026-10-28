@@ -26,6 +26,10 @@
 				<option value="0">JHIDE</option>
 				<option value="1">JSHOW</option>
 			</field>
+			<field name="title_link" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_TITLE_LINK_LABEL" useglobal="true" validate="options">
+				<option value="download">COM_ADRIANJDOWNLOADS_TITLE_LINK_DOWNLOAD</option>
+				<option value="details">COM_ADRIANJDOWNLOADS_TITLE_LINK_DETAILS</option>
+			</field>
 			<field name="show_type_icon" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_TYPE_ICON_LABEL" useglobal="true" validate="options">
 				<option value="0">JHIDE</option>
 				<option value="1">JSHOW</option>
