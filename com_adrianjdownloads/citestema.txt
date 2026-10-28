@@ -1,0 +1,302 @@
+=====================================================================
+  ADRIAN JDOWNLOADS - Manager de fișiere pentru descărcare (Joomla)
+  Versiunea 1.0.3
+=====================================================================
+
+CUPRINS
+  1. Ce face componenta
+  2. Cerințe
+  3. Instalare
+  4. Actualizare la o versiune nouă
+  5. Primii pași (configurare rapidă)
+  6. Categorii
+  7. Adăugarea fișierelor
+  8. Cine poate vedea și cine poate descărca
+  9. Afișarea pe site (elemente de meniu)
+ 10. Opțiunile componentei
+ 11. Limba română / engleză
+ 12. Unde sunt păstrate fișierele (siguranță)
+ 13. Dezinstalare
+ 14. Probleme frecvente
+
+
+---------------------------------------------------------------------
+1. CE FACE COMPONENTA
+---------------------------------------------------------------------
+Adrian jDownloads publică pe site documente pentru descărcare
+(hotărâri, regulamente, formulare, anexe etc.), organizate pe
+categorii și subcategorii.
+
+  - categorii pe mai multe niveluri;
+  - încărcare, înlocuire și ștergere de fișiere din administrare;
+  - iconiță după tipul fișierului (PDF, Word, Excel, PowerPoint,
+    arhivă, imagine, audio, video, text, link extern);
+  - click pe titlu = descărcare directă;
+  - fișiere libere (oricine le descarcă) sau „doar pentru
+    utilizatori conectați”;
+  - căutare în categorie, contor de descărcări, adrese prietenoase;
+  - interfață în limba română și engleză; arată bine și pe telefon.
+
+
+---------------------------------------------------------------------
+2. CERINȚE
+---------------------------------------------------------------------
+  - Joomla 4.4 sau mai nou, ori Joomla 5.x
+  - PHP 8.1 sau mai nou
+  - bază de date MySQL / MariaDB
+
+  ATENȚIE: componenta NU funcționează pe Joomla 3.x.
+
+
+---------------------------------------------------------------------
+3. INSTALARE
+---------------------------------------------------------------------
+  1. Intrați în administrarea site-ului (adresa-site/administrator).
+  2. Meniul Sistem -> la secțiunea „Instalare” alegeți „Extensii”.
+  3. Fila „Încărcare fișier pachet”: trageți fișierul
+     com_adrianjdownloads-1.0.3.zip în chenar (sau „Alegeți fișierul”).
+  4. Așteptați mesajul „Instalarea componentei a reușit”.
+
+  După instalare apare în meniul din stânga:
+     Componente -> Adrian jDownloads -> Fișiere
+                                     -> Categorii
+
+  La instalare se creează automat dosarul protejat
+  /adrianjdownloads_files în rădăcina site-ului (vezi cap. 12).
+
+
+---------------------------------------------------------------------
+4. ACTUALIZARE LA O VERSIUNE NOUĂ
+---------------------------------------------------------------------
+  Instalați noul fișier .zip exact ca la capitolul 3, PESTE versiunea
+  existentă. NU dezinstalați înainte: categoriile, fișierele și
+  setările rămân neschimbate.
+
+
+---------------------------------------------------------------------
+5. PRIMII PAȘI (CONFIGURARE RAPIDĂ)
+---------------------------------------------------------------------
+  1. Creați cel puțin o categorie (cap. 6).
+  2. Încărcați fișierele (cap. 7).
+  3. Creați un element de meniu ca fișierele să apară pe site (cap. 9).
+  4. Opțional: verificați Opțiunile (cap. 10), mai ales lista
+     tipurilor de fișiere permise.
+
+
+---------------------------------------------------------------------
+6. CATEGORII
+---------------------------------------------------------------------
+  Componente -> Adrian jDownloads -> Categorii -> butonul „Nou”.
+
+  - Titlu: numele categoriei (ex. „Hotărâri C.A.”).
+  - Părinte: lăsați „Fără părinte” pentru o categorie principală sau
+    alegeți altă categorie ca să creați o SUBCATEGORIE
+    (ex. „Hotărâri C.A.” -> „2026”).
+  - Descriere: opțional, apare deasupra listei de fișiere.
+  - Stare: Publicat / Nepublicat.
+  - Acces: cine vede categoria (de obicei „Public”).
+
+  Ordinea categoriilor se schimbă prin tragere în listă (coloana cu
+  săgeți), ca la articole.
+
+
+---------------------------------------------------------------------
+7. ADĂUGAREA FIȘIERELOR
+---------------------------------------------------------------------
+  Componente -> Adrian jDownloads -> Fișiere -> butonul „Nou”.
+
+  Fila „Detalii”:
+  - Titlu (obligatoriu): textul afișat vizitatorilor.
+  - Încarcă fișier: alegeți fișierul de pe calculator.
+      * Tipurile permise sunt afișate sub câmp.
+      * Dimensiunea maximă e afișată de Joomla („Maximum upload
+        size”); o stabilește serverul (vezi cap. 14).
+      * Numele cu diacritice sunt păstrate la descărcare.
+  - Link extern: în loc de fișier puteți pune o adresă de internet;
+    vizitatorul este trimis acolo (descărcarea se numără).
+  - Versiune, Autor: opționale.
+  - Descriere: opțională; dacă există, în listă apare și linkul
+    „Detalii” spre pagina fișierului.
+
+  Coloana din dreapta:
+  - Stare: Publicat / Nepublicat / Arhivat / Coș de gunoi.
+  - Categorie (obligatoriu).
+  - Acces (vizualizare): cine VEDE fișierul (vezi cap. 8).
+  - Doar pentru utilizatori conectați: Nu / Da (vezi cap. 8).
+
+  Fila „Publicare”: date de început / sfârșit ale publicării, data
+  creării, numărul de descărcări și de vizualizări.
+
+  Apăsați „Salvează și închide”.
+
+  ÎNLOCUIREA unui fișier: deschideți-l, alegeți fișierul nou la
+  „Încarcă fișier” și salvați. Fișierul vechi este șters de pe server.
+
+  ȘTERGEREA: bifați fișierul -> „Acțiuni” -> „Coș de gunoi”. Apoi,
+  cu filtrul „Coș de gunoi”, bifați -> „Golește coșul de gunoi”.
+  Abia atunci fișierul se șterge și de pe server (dacă opțiunea
+  „Șterge fișierele odată cu înregistrările” e activă).
+
+  ORDINEA în listă: sortați după coloana de ordonare și trageți
+  rândurile.
+
+  Căutare în administrare: după titlu, alias sau numele fișierului;
+  scrieți „id:5” pentru a găsi fișierul cu ID-ul 5.
+
+
+---------------------------------------------------------------------
+8. CINE POATE VEDEA ȘI CINE POATE DESCĂRCA
+---------------------------------------------------------------------
+  Acces (vizualizare)
+     Cine vede fișierul în liste. „Public” = toată lumea.
+
+  Doar pentru utilizatori conectați
+     NU (implicit): oricine vede fișierul îl poate descărca,
+                    fără autentificare.
+     DA:            vizitatorii văd fișierul în listă, dar în locul
+                    butonului „Descarcă” apare „Necesită
+                    autentificare”. La click sunt trimiși la pagina
+                    de conectare, iar după conectare descarcă normal.
+
+  În lista din administrare, fișierele restricționate au eticheta
+  „Doar conectați”.
+
+  Pentru ca vizitatorii să se poată conecta, pe site trebuie să
+  existe modulul „Autentificare” sau un element de meniu de
+  autentificare.
+
+
+---------------------------------------------------------------------
+9. AFIȘAREA PE SITE (ELEMENTE DE MENIU)
+---------------------------------------------------------------------
+  Meniuri -> alegeți meniul (ex. „Main Menu”) -> „Nou”.
+  La „Tip element de meniu” -> „Selectează” -> „Adrian jDownloads”.
+  Sunt 3 tipuri:
+
+  a) „Lista tuturor categoriilor”
+     Arborele cu toate categoriile și numărul de fișiere din fiecare.
+     La „Categoria părinte” lăsați rădăcina pentru toate categoriile.
+
+  b) „Fișierele dintr-o categorie”   (cel mai folosit)
+     Alegeți categoria. Pagina arată subcategoriile, căsuța de
+     căutare și tabelul cu fișiere: iconiță, titlu, dimensiune, dată,
+     număr de descărcări și butonul „Descarcă”.
+     În fila „Opțiuni de afișare” puteți schimba, doar pentru acest
+     meniu, ce coloane apar, ordinea, numărul pe pagină și ce face
+     click-ul pe titlu.
+
+  c) „Un singur fișier”
+     Pagina de detalii a unui singur fișier.
+
+  Salvați. Adresele vor arăta de forma:
+     /documente/9-hotarari-ca/10-2026/3-hotarare-nr-5
+
+
+---------------------------------------------------------------------
+10. OPȚIUNILE COMPONENTEI
+---------------------------------------------------------------------
+  Componente -> Adrian jDownloads -> butonul „Opțiuni” (dreapta sus).
+
+  Fila „Fișiere”
+  - Dosar de stocare: implicit adrianjdownloads_files. Dacă îl
+    schimbați, fișierele deja încărcate NU se mută singure.
+  - Tipuri de fișiere permise: extensii separate prin virgulă.
+    Implicit: pdf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp,txt,rtf,
+    csv,zip,rar,7z,jpg,jpeg,png,gif,mp3,mp4
+    (fișierele .php și alte tipuri periculoase sunt respinse oricum).
+  - Dimensiune maximă (MB): 0 = doar limita serverului.
+  - Șterge fișierele odată cu înregistrările: Da / Nu.
+  - Deschide în browser: extensii care se deschid direct în browser
+    în loc să fie salvate (ex. pdf). Gol = se salvează întotdeauna.
+
+  Fila „Site (frontend)”
+  - Click pe titlu: „Descarcă fișierul direct” (implicit) sau
+    „Deschide pagina de detalii”.
+  - Iconița tipului de fișier: Afișează / Ascunde.
+  - Titlul categoriei, Subcategorii, Categorii goale, Descrierea
+    categoriei, Căsuța de căutare.
+  - Dimensiunea fișierului, Data, Numărul de descărcări, Versiunea,
+    Autorul: ce coloane / informații se văd.
+  - Fișiere doar pentru conectați: arată sau nu eticheta
+    „Necesită autentificare”.
+  - Ordonare: manuală, după titlu, cele mai noi, cele mai vechi,
+    cele mai descărcate.
+  - Fișiere pe pagină: implicit 20.
+
+  Fila „Permisiuni”: ce grupuri de utilizatori pot administra
+  componenta (creare, editare, ștergere, publicare).
+
+
+---------------------------------------------------------------------
+11. LIMBA ROMÂNĂ / ENGLEZĂ
+---------------------------------------------------------------------
+  Textele componentei sunt incluse în ambele limbi și se aleg
+  automat după limba site-ului și a administrării.
+  Pentru română trebuie instalat pachetul de limbă ro-RO al Joomla:
+  Sistem -> Instalare -> Limbi -> „Română”, apoi
+  Sistem -> Administrare -> Limbi -> setați Româna ca implicită
+  (pentru Site și pentru Administrator).
+
+
+---------------------------------------------------------------------
+12. UNDE SUNT PĂSTRATE FIȘIERELE (SIGURANȚĂ)
+---------------------------------------------------------------------
+  Fișierele se păstrează în dosarul /adrianjdownloads_files din
+  rădăcina site-ului, cu nume unice (data + cod + nume).
+  Dosarul conține un fișier .htaccess care interzice accesul direct.
+  Vizitatorii descarcă DOAR prin componentă, care verifică drepturile
+  și numără descărcarea.
+
+  Dacă serverul folosește NGINX (nu Apache), fișierul .htaccess nu
+  are efect. Rugați administratorul serverului să adauge regula:
+      location ^~ /adrianjdownloads_files/ { deny all; }
+
+  Copii de siguranță: includeți dosarul adrianjdownloads_files în
+  backup (Akeeba Backup îl include automat, fiind în rădăcina site-ului).
+
+
+---------------------------------------------------------------------
+13. DEZINSTALARE
+---------------------------------------------------------------------
+  Sistem -> Administrare -> Extensii -> căutați „Adrian jDownloads”
+  -> bifați -> „Dezinstalează”.
+
+  Se șterg componenta și lista de fișiere din baza de date.
+  Fișierele încărcate RĂMÂN în /adrianjdownloads_files, ca să nu se
+  piardă documente din greșeală. Le puteți șterge manual (FTP sau
+  managerul de fișiere al găzduirii) dacă nu mai sunt necesare.
+
+
+---------------------------------------------------------------------
+14. PROBLEME FRECVENTE
+---------------------------------------------------------------------
+  „Tipul de fișier .xxx nu este permis”
+     Adăugați extensia în Opțiuni -> Fișiere -> Tipuri de fișiere
+     permise.
+
+  „Fișierul nu a putut fi încărcat (cod eroare 1 sau 2)”
+     Fișierul depășește limita serverului (upload_max_filesize /
+     post_max_size). Cereți găzduirii mărirea limitei sau
+     comprimați fișierul.
+
+  „Fișierul nu a putut fi salvat în dosarul de stocare”
+     Dosarul adrianjdownloads_files nu are drept de scriere pentru
+     server. Setați permisiunile 755 (proprietar: utilizatorul
+     serverului web).
+
+  În listă apare „fișierul lipsește de pe server”
+     Fișierul a fost șters manual din dosar. Încărcați-l din nou.
+
+  Fișierele nu apar pe site
+     Verificați: fișierul și categoria sunt Publicate, accesul este
+     „Public”, datele de publicare nu sunt în viitor/trecut, există
+     un element de meniu către categorie.
+
+  Vizitatorul este trimis la autentificare
+     Fișierul are „Doar pentru utilizatori conectați” = Da.
+     Puneți Nu dacă trebuie să fie descărcat liber.
+
+  Adresele nu sunt „prietenoase” (au index.php sau ?option=...)
+     Sistem -> Configurație globală -> Site -> „Adrese URL
+     prietenoase” = Da și (pe Apache) „Rescriere URL” = Da, cu
+     fișierul htaccess.txt redenumit în .htaccess.

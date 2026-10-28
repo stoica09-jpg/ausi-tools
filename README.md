@@ -35,6 +35,9 @@ Pachetul instalabil: [`dist/com_adrianjdownloads-1.0.3.zip`](dist/com_adrianjdow
 
 ### Instalare
 
+Instrucțiunile complete de instalare, configurare și folosire sunt în
+[`com_adrianjdownloads/citestema.txt`](com_adrianjdownloads/citestema.txt) (inclus și în pachetul .zip).
+
 1. Administrare Joomla → **Sistem → Instalare → Extensii** → încărcați `com_adrianjdownloads-1.0.3.zip`.
 2. **Componente → Adrian jDownloads → Categorii**: creați categoriile.
 3. **Componente → Adrian jDownloads → Fișiere → Nou**: încărcați fișierele.
