@@ -1,6 +1,6 @@
 =====================================================================
   ADRIAN JDOWNLOADS - Manager de fișiere pentru descărcare (Joomla)
-  Versiunea 1.0.3
+  Versiunea 1.1.0
 =====================================================================
 
 CUPRINS
@@ -13,6 +13,7 @@ CUPRINS
   7. Adăugarea fișierelor
   8. Cine poate vedea și cine poate descărca
   9. Afișarea pe site (elemente de meniu)
+ 9b. Inserarea fișierelor în articole (butonul din editor)
  10. Opțiunile componentei
  11. Limba română / engleză
  12. Unde sunt păstrate fișierele (siguranță)
@@ -32,6 +33,8 @@ categorii și subcategorii.
   - iconiță după tipul fișierului (PDF, Word, Excel, PowerPoint,
     arhivă, imagine, audio, video, text, link extern);
   - click pe titlu = descărcare directă;
+  - buton în editorul de articole pentru inserarea unui fișier sau a
+    unei categorii întregi direct în text (ca la jDownloads);
   - fișiere libere (oricine le descarcă) sau „doar pentru
     utilizatori conectați”;
   - căutare în categorie, contor de descărcări, adrese prietenoase;
@@ -54,8 +57,14 @@ categorii și subcategorii.
   1. Intrați în administrarea site-ului (adresa-site/administrator).
   2. Meniul Sistem -> la secțiunea „Instalare” alegeți „Extensii”.
   3. Fila „Încărcare fișier pachet”: trageți fișierul
-     com_adrianjdownloads-1.0.3.zip în chenar (sau „Alegeți fișierul”).
-  4. Așteptați mesajul „Instalarea componentei a reușit”.
+     pkg_adrianjdownloads-1.1.0.zip în chenar (sau „Alegeți fișierul”).
+  4. Așteptați mesajul că instalarea a reușit.
+
+  Pachetul instalează dintr-o dată 3 extensii, toate activate automat:
+     - componenta Adrian jDownloads;
+     - pluginul „Buton - Adrian jDownloads” (butonul din editor);
+     - pluginul „Conținut - Adrian jDownloads” (afișează fișierele
+       inserate în articole).
 
   După instalare apare în meniul din stânga:
      Componente -> Adrian jDownloads -> Fișiere
@@ -71,6 +80,8 @@ categorii și subcategorii.
   Instalați noul fișier .zip exact ca la capitolul 3, PESTE versiunea
   existentă. NU dezinstalați înainte: categoriile, fișierele și
   setările rămân neschimbate.
+  Dacă aveți instalată o versiune mai veche (com_adrianjdownloads-1.0.x),
+  instalați pur și simplu pachetul pkg_adrianjdownloads-1.1.0.zip peste ea.
 
 
 ---------------------------------------------------------------------
@@ -193,6 +204,51 @@ categorii și subcategorii.
 
 
 ---------------------------------------------------------------------
+9b. INSERAREA FIȘIERELOR ÎN ARTICOLE (BUTONUL DIN EDITOR)
+---------------------------------------------------------------------
+  1. Deschideți un articol în administrare (Conținut -> Articole).
+  2. Puneți cursorul în text acolo unde vreți fișierul.
+  3. Editorul TinyMCE (Joomla 5): meniul „CMS Content” ->
+     „Fișier jDownloads”.
+     Alte editoare / Joomla 4: butonul „Fișier jDownloads” de sub
+     editor.
+  4. Se deschide fereastra cu fișierele. Alegeți sus „Afișare în
+     articol”:
+       - „Casetă cu buton Descarcă” (iconiță, titlu, dimensiune și
+         buton verde);
+       - „Link simplu” (iconiță mică și titlul ca link, în text).
+  5. Dați click pe:
+       - TITLUL unui fișier -> se inserează acel fișier;
+       - butonul CATEGORIEI (dreapta) -> se inserează lista tuturor
+         fișierelor publicate din acea categorie (se actualizează
+         singură când adăugați fișiere noi în categorie).
+     Puteți căuta și filtra după categorie, ca în lista de fișiere.
+  6. În text apare o etichetă, de exemplu:
+        {adrianjd file=12}
+        {adrianjd category=5 layout=link}
+     Salvați articolul. Pe site, eticheta este înlocuită automat cu
+     fișierul / lista de fișiere.
+
+  Etichetele se pot scrie și de mână:
+     {adrianjd file=ID}                fișierul cu acel ID (casetă)
+     {adrianjd file=ID layout=link}    același fișier, ca link simplu
+     {adrianjd category=ID}            toate fișierele din categorie
+  ID-ul se vede în ultima coloană a listei de fișiere / categorii.
+
+  Regulile de acces se respectă și în articole: fișierele nepublicate
+  sau pe care vizitatorul nu le poate vedea nu apar; la cele „Doar
+  pentru utilizatori conectați” apare „Necesită autentificare”.
+
+  Setări: Sistem -> Pluginuri -> „Conținut - Adrian jDownloads”:
+  afișarea implicită (casetă sau link), dimensiunea fișierului,
+  numărul de descărcări.
+
+  Butonul apare în editorul din ADMINISTRARE. Utilizatorii care pot
+  crea sau edita articole îl pot folosi chiar dacă nu au drept să
+  administreze fișierele.
+
+
+---------------------------------------------------------------------
 10. OPȚIUNILE COMPONENTEI
 ---------------------------------------------------------------------
   Componente -> Adrian jDownloads -> butonul „Opțiuni” (dreapta sus).
@@ -259,9 +315,11 @@ categorii și subcategorii.
 13. DEZINSTALARE
 ---------------------------------------------------------------------
   Sistem -> Administrare -> Extensii -> căutați „Adrian jDownloads”
-  -> bifați -> „Dezinstalează”.
+  -> bifați rândul de tip „Pachet” -> „Dezinstalează”.
 
-  Se șterg componenta și lista de fișiere din baza de date.
+  Se șterg componenta, cele două pluginuri și lista de fișiere din
+  baza de date. Etichetele {adrianjd ...} rămase în articole vor apărea
+  ca text simplu; ștergeți-le din articole.
   Fișierele încărcate RĂMÂN în /adrianjdownloads_files, ca să nu se
   piardă documente din greșeală. Le puteți șterge manual (FTP sau
   managerul de fișiere al găzduirii) dacă nu mai sunt necesare.
@@ -295,6 +353,16 @@ categorii și subcategorii.
   Vizitatorul este trimis la autentificare
      Fișierul are „Doar pentru utilizatori conectați” = Da.
      Puneți Nu dacă trebuie să fie descărcat liber.
+
+  Butonul „Fișier jDownloads” nu apare în editor
+     Verificați în Sistem -> Pluginuri că „Buton - Adrian jDownloads”
+     este Activat. În TinyMCE (Joomla 5) butonul este în meniul
+     „CMS Content”.
+
+  În articol se vede textul {adrianjd file=...} în loc de fișier
+     Pluginul „Conținut - Adrian jDownloads” nu este activat.
+     Fișierele pe care vizitatorul nu le poate vedea sunt ascunse
+     (eticheta dispare).
 
   Adresele nu sunt „prietenoase” (au index.php sau ?option=...)
      Sistem -> Configurație globală -> Site -> „Adrese URL

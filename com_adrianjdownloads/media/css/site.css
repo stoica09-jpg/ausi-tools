@@ -25,3 +25,19 @@
   .adrianjd .adrianjd-table td.adrianjd-title-cell { display: flex; }
   .adrianjd .adrianjd-table td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; }
 }
+
+/* Files inserted in articles */
+.adrianjd-embed-group { display: grid; gap: .5rem; margin: .75rem 0; }
+.adrianjd-embed-box { display: flex; align-items: center; gap: .75rem; padding: .6rem .8rem; border: 1px solid rgba(0,0,0,.15); border-radius: .375rem; background: rgba(0,0,0,.02); }
+.adrianjd-embed-box .adrianjd-ficon { flex: 0 0 auto; width: 28px; height: 34px; }
+.adrianjd-embed-body { flex: 1 1 auto; min-width: 0; }
+.adrianjd-embed-body .adrianjd-title { font-weight: 600; }
+.adrianjd-embed-meta { font-size: .85em; color: #555; }
+.adrianjd-embed-action { flex: 0 0 auto; }
+.adrianjd .adrianjd-ficon.adrianjd-ficon-inline { width: 16px; height: 20px; vertical-align: text-bottom; }
+.adrianjd-embed-list { list-style: none; padding-left: 0; }
+.adrianjd-embed-list li { margin: .2rem 0; }
+@media (max-width: 575.98px) {
+  .adrianjd-embed-box { flex-wrap: wrap; }
+  .adrianjd-embed-action { width: 100%; text-align: right; }
+}

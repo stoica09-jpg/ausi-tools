@@ -9,6 +9,17 @@
       "name": "com_adrianjdownloads.site",
       "type": "style",
       "uri": "com_adrianjdownloads/site.css"
+    },
+    {
+      "name": "com_adrianjdownloads.admin-modal",
+      "type": "script",
+      "uri": "com_adrianjdownloads/admin-modal.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
     }
   ]
 }

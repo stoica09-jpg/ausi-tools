@@ -41,6 +41,11 @@ class DownloadsModel extends ListModel
         }
 
         parent::__construct($config, $factory);
+
+        // The "insert file" window keeps its own filters.
+        if (\Joomla\CMS\Factory::getApplication()->getInput()->getCmd('layout') === 'modal') {
+            $this->context .= '.modal';
+        }
     }
 
     protected function populateState($ordering = 'a.id', $direction = 'desc')

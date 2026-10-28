@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="content" method="upgrade">
+	<name>plg_content_adrianjdownloads</name>
+	<author>Adrian</author>
+	<creationDate>2026-10</creationDate>
+	<copyright>(C) 2026 Adrian. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.1.0</version>
+	<description>PLG_CONTENT_ADRIANJDOWNLOADS_XML_DESCRIPTION</description>
+	<namespace path="src">Adrian\Plugin\Content\Adrianjdownloads</namespace>
+	<files>
+		<folder plugin="adrianjdownloads">services</folder>
+		<folder>language</folder>
+		<folder>src</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="layout" type="list" label="PLG_CONTENT_ADRIANJDOWNLOADS_LAYOUT_LABEL" description="PLG_CONTENT_ADRIANJDOWNLOADS_LAYOUT_DESC" default="box" validate="options">
+					<option value="box">PLG_CONTENT_ADRIANJDOWNLOADS_LAYOUT_BOX</option>
+					<option value="link">PLG_CONTENT_ADRIANJDOWNLOADS_LAYOUT_LINK</option>
+				</field>
+				<field name="show_size" type="radio" label="PLG_CONTENT_ADRIANJDOWNLOADS_SHOW_SIZE_LABEL" layout="joomla.form.field.radio.switcher" default="1">
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+				<field name="show_count" type="radio" label="PLG_CONTENT_ADRIANJDOWNLOADS_SHOW_COUNT_LABEL" layout="joomla.form.field.radio.switcher" default="0">
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

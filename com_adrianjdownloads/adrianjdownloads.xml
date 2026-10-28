@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail></authorEmail>
 	<authorUrl></authorUrl>
-	<version>1.0.3</version>
+	<version>1.1.0</version>
 	<description>COM_ADRIANJDOWNLOADS_XML_DESCRIPTION</description>
 	<namespace path="src">Adrian\Component\Adrianjdownloads</namespace>
 	<scriptfile>script.php</scriptfile>
@@ -37,6 +37,7 @@
 	<media destination="com_adrianjdownloads" folder="media">
 		<filename>joomla.asset.json</filename>
 		<folder>css</folder>
+		<folder>js</folder>
 	</media>
 
 	<administration>
