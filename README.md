@@ -5,15 +5,17 @@
 Componentă Joomla pentru gestionarea fișierelor de descărcat, după modelul jDownloads.
 Funcționează pe **Joomla 4.4+, 5.x** (PHP 8.1+). Interfața este în **română și engleză**.
 
-Pachetul instalabil: [`dist/com_adrianjdownloads-1.0.0.zip`](dist/com_adrianjdownloads-1.0.0.zip)
+Pachetul instalabil: [`dist/com_adrianjdownloads-1.0.1.zip`](dist/com_adrianjdownloads-1.0.1.zip)
 
 ### Ce face
 
 - **Categorii pe mai multe niveluri** (sistemul de categorii Joomla: ordonare, permisiuni, publicare).
 - **Administrare fișiere**: încărcare, înlocuire, ștergere; titlu, descriere (editor), versiune, autor,
   date de publicare, stare (publicat / nepublicat / arhivat / coș de gunoi), ordonare prin tragere.
-- **Două niveluri de acces** pentru fiecare fișier: cine îl *vede* și cine îl poate *descărca*
-  (ex.: vizitatorii văd fișierul, dar doar utilizatorii înregistrați îl descarcă).
+- **Descărcare liberă, implicit**: oricine vede un fișier îl poate descărca, fără autentificare.
+  La publicare puteți bifa **„Doar pentru utilizatori conectați”**: vizitatorii văd fișierul în listă,
+  dar sunt trimiși la autentificare când încearcă să-l descarce. Cine *vede* fișierul se alege cu
+  câmpul „Acces (vizualizare)”.
 - **Link extern** în loc de fișier (descărcarea se numără și în acest caz).
 - **Contor de descărcări** și de vizualizări.
 - **Fișiere protejate**: se păstrează într-un dosar blocat cu `.htaccess` (`/adrianjdownloads_files`)
@@ -29,7 +31,7 @@ Pachetul instalabil: [`dist/com_adrianjdownloads-1.0.0.zip`](dist/com_adrianjdow
 
 ### Instalare
 
-1. Administrare Joomla → **Sistem → Instalare → Extensii** → încărcați `com_adrianjdownloads-1.0.0.zip`.
+1. Administrare Joomla → **Sistem → Instalare → Extensii** → încărcați `com_adrianjdownloads-1.0.1.zip`.
 2. **Componente → Adrian jDownloads → Categorii**: creați categoriile.
 3. **Componente → Adrian jDownloads → Fișiere → Nou**: încărcați fișierele.
 4. **Meniuri → Meniul principal → Nou** → tip *Adrian jDownloads* → alegeți „Lista tuturor categoriilor”
@@ -62,5 +64,6 @@ com_adrianjdownloads/
 
 Testat pe Joomla 5.4 (PHP 8.2, MariaDB 10.11): instalare, actualizare, dezinstalare; categorii și
 subcategorii; încărcare, înlocuire și ștergere de fișiere; fișiere cu diacritice în nume; respingerea
-fișierelor `.php`; acces „doar înregistrați” (vizitatorul este trimis la autentificare); blocarea
+fișierelor `.php`; descărcare liberă implicită și opțiunea „Doar pentru utilizatori conectați”
+(vizitatorul este trimis la autentificare); actualizarea de la 1.0.0 la 1.0.1; blocarea
 accesului direct la dosar (403); căutare; adrese SEF; afișare pe telefon; interfața în română și engleză.

@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `#__adrianjdownloads_files` (
   `state` tinyint NOT NULL DEFAULT 0,
   `featured` tinyint unsigned NOT NULL DEFAULT 0,
   `access` int unsigned NOT NULL DEFAULT 1,
-  `access_download` int unsigned NOT NULL DEFAULT 1,
+  `require_login` tinyint unsigned NOT NULL DEFAULT 0,
   `language` varchar(7) NOT NULL DEFAULT '*',
   `ordering` int NOT NULL DEFAULT 0,
   `created` datetime NOT NULL,

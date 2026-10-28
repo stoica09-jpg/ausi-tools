@@ -18,7 +18,7 @@ use Joomla\CMS\Router\Route;
 /** @var \Adrian\Component\Adrianjdownloads\Site\View\Category\HtmlView $this */
 
 $p        = $this->params;
-$levels   = Factory::getApplication()->getIdentity()->getAuthorisedViewLevels();
+$isGuest  = (bool) Factory::getApplication()->getIdentity()->guest;
 $search   = (string) $this->state->get('filter.search');
 $showSize = (bool) $p->get('show_size', 1);
 $showDate = (bool) $p->get('show_date', 1);
@@ -90,7 +90,7 @@ $formUrl  = Route::_(RouteHelper::getCategoryRoute($this->category->id));
             </thead>
             <tbody>
             <?php foreach ($this->items as $item) :
-                $canDl  = \in_array((int) $item->access_download, $levels);
+                $canDl  = !$item->require_login || !$isGuest;
                 $detail = Route::_(RouteHelper::getDownloadRoute($item->slug, $item->catid, $item->language));
                 ?>
                 <tr>

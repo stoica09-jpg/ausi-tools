@@ -67,7 +67,7 @@ $allowed = implode(', ', StorageHelper::getAllowedExtensions());
             <div class="col-lg-3">
                 <?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
                 <div class="form-vertical">
-                    <?php echo $this->form->renderField('access_download'); ?>
+                    <?php echo $this->form->renderField('require_login'); ?>
                 </div>
             </div>
         </div>

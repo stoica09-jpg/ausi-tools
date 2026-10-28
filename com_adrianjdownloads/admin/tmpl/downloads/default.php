@@ -136,8 +136,8 @@ if ($saveOrder && !empty($this->items)) {
                                 </td>
                                 <td class="small d-none d-md-table-cell">
                                     <?php echo $this->escape($item->access_level); ?>
-                                    <?php if ($item->access_download != $item->access) : ?>
-                                        <br><span class="text-muted"><?php echo Text::_('COM_ADRIANJDOWNLOADS_HEADING_DOWNLOAD_ACCESS') . ': ' . $this->escape($item->access_download_level); ?></span>
+                                    <?php if ($item->require_login) : ?>
+                                        <br><span class="badge bg-warning text-dark"><span class="icon-lock" aria-hidden="true"></span> <?php echo Text::_('COM_ADRIANJDOWNLOADS_BADGE_REQUIRE_LOGIN'); ?></span>
                                     <?php endif; ?>
                                 </td>
                                 <td class="d-none d-lg-table-cell">

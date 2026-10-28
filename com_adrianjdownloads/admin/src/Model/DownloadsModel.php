@@ -67,7 +67,7 @@ class DownloadsModel extends ListModel
         $query->select(
             $db->quoteName(
                 [
-                    'a.id', 'a.title', 'a.alias', 'a.catid', 'a.state', 'a.access', 'a.access_download',
+                    'a.id', 'a.title', 'a.alias', 'a.catid', 'a.state', 'a.access', 'a.require_login',
                     'a.language', 'a.ordering', 'a.created', 'a.created_by', 'a.downloads', 'a.hits',
                     'a.file_name', 'a.file_original', 'a.file_size', 'a.external_url', 'a.version',
                     'a.checked_out', 'a.checked_out_time', 'a.publish_up', 'a.publish_down',
@@ -78,7 +78,6 @@ class DownloadsModel extends ListModel
                 [
                     $db->quoteName('c.title', 'category_title'),
                     $db->quoteName('ag.title', 'access_level'),
-                    $db->quoteName('ad.title', 'access_download_level'),
                     $db->quoteName('uc.name', 'editor'),
                     $db->quoteName('l.title', 'language_title'),
                     $db->quoteName('l.image', 'language_image'),
@@ -87,7 +86,6 @@ class DownloadsModel extends ListModel
             ->from($db->quoteName('#__adrianjdownloads_files', 'a'))
             ->join('LEFT', $db->quoteName('#__categories', 'c'), $db->quoteName('c.id') . ' = ' . $db->quoteName('a.catid'))
             ->join('LEFT', $db->quoteName('#__viewlevels', 'ag'), $db->quoteName('ag.id') . ' = ' . $db->quoteName('a.access'))
-            ->join('LEFT', $db->quoteName('#__viewlevels', 'ad'), $db->quoteName('ad.id') . ' = ' . $db->quoteName('a.access_download'))
             ->join('LEFT', $db->quoteName('#__users', 'uc'), $db->quoteName('uc.id') . ' = ' . $db->quoteName('a.checked_out'))
             ->join('LEFT', $db->quoteName('#__languages', 'l'), $db->quoteName('l.lang_code') . ' = ' . $db->quoteName('a.language'));
 

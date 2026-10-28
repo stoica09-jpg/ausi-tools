@@ -32,16 +32,14 @@ class DownloadController extends BaseController
 
         $user = $this->app->getIdentity();
 
-        if (!\in_array((int) $item->access_download, $user->getAuthorisedViewLevels())) {
-            if ($user->guest) {
-                $return = base64_encode(Uri::getInstance()->toString());
-                $this->app->enqueueMessage(Text::_('COM_ADRIANJDOWNLOADS_LOGIN_TO_DOWNLOAD'), 'warning');
-                $this->app->redirect(Route::_('index.php?option=com_users&view=login&return=' . $return, false));
+        // Visitors who can see the file can download it, unless the file is
+        // set to require login.
+        if ($item->require_login && $user->guest) {
+            $return = base64_encode(Uri::getInstance()->toString());
+            $this->app->enqueueMessage(Text::_('COM_ADRIANJDOWNLOADS_LOGIN_TO_DOWNLOAD'), 'warning');
+            $this->app->redirect(Route::_('index.php?option=com_users&view=login&return=' . $return, false));
 
-                return;
-            }
-
-            throw new \Exception(Text::_('COM_ADRIANJDOWNLOADS_ERROR_NO_DOWNLOAD_ACCESS'), 403);
+            return;
         }
 
         $path = $item->file_name ? StorageHelper::getFilePath($item->file_name) : null;

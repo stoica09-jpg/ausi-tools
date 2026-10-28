@@ -36,7 +36,7 @@ class HtmlView extends BaseHtmlView
         $app  = Factory::getApplication();
         $user = $app->getIdentity();
 
-        $this->canDownload = \in_array((int) $this->item->access_download, $user->getAuthorisedViewLevels());
+        $this->canDownload = !$this->item->require_login || !$user->guest;
 
         $model->hit($this->item->id);
 
