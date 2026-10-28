@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="editors-xtd" method="upgrade">
+	<name>plg_editors-xtd_adrianjdownloads</name>
+	<author>Adrian</author>
+	<creationDate>2026-10</creationDate>
+	<copyright>(C) 2026 Adrian. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.1.0</version>
+	<description>PLG_EDITORS-XTD_ADRIANJDOWNLOADS_XML_DESCRIPTION</description>
+	<namespace path="src">Adrian\Plugin\EditorsXtd\Adrianjdownloads</namespace>
+	<files>
+		<folder plugin="adrianjdownloads">services</folder>
+		<folder>language</folder>
+		<folder>src</folder>
+	</files>
+</extension>

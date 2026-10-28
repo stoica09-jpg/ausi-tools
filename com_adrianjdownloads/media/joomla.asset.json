@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_adrianjdownloads",
+  "version": "1.0.0",
+  "description": "Adrian jDownloads assets",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "com_adrianjdownloads.site",
+      "type": "style",
+      "uri": "com_adrianjdownloads/site.css"
+    },
+    {
+      "name": "com_adrianjdownloads.admin-modal",
+      "type": "script",
+      "uri": "com_adrianjdownloads/admin-modal.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}

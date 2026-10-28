@@ -1,0 +1,43 @@
+/* Adrian jDownloads - frontend */
+.adrianjd .adrianjd-cats { list-style: none; padding-left: 0; }
+.adrianjd .adrianjd-cats .adrianjd-cats { padding-left: 1.5rem; margin-top: .35rem; }
+.adrianjd .adrianjd-cat { margin-bottom: .5rem; }
+.adrianjd .adrianjd-cat > a { font-weight: 600; }
+.adrianjd .adrianjd-cat-desc { font-size: .9em; color: #555; margin: .15rem 0 0; }
+.adrianjd .adrianjd-subcats { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .5rem; margin: 0 0 1.25rem; padding: 0; list-style: none; }
+.adrianjd .adrianjd-subcats li { border: 1px solid rgba(0,0,0,.125); border-radius: .375rem; padding: .5rem .75rem; }
+.adrianjd .adrianjd-table td, .adrianjd .adrianjd-table th { vertical-align: middle; }
+.adrianjd .adrianjd-title { font-weight: 600; }
+.adrianjd .adrianjd-title-cell { display: flex; align-items: flex-start; gap: .6rem; }
+.adrianjd .adrianjd-title-body { min-width: 0; }
+.adrianjd .adrianjd-ficon { flex: 0 0 auto; width: 28px; height: 34px; }
+.adrianjd .adrianjd-meta-file { display: flex; align-items: center; gap: .5rem; }
+.adrianjd .adrianjd-desc { font-size: .9em; color: #555; }
+.adrianjd .adrianjd-details-link { white-space: nowrap; margin-left: .25rem; }
+.adrianjd .adrianjd-meta { list-style: none; padding: 0; margin: 0 0 1rem; }
+.adrianjd .adrianjd-meta li { padding: .25rem 0; border-bottom: 1px dashed rgba(0,0,0,.1); }
+.adrianjd .adrianjd-search { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.adrianjd .adrianjd-search input[type="search"] { flex: 1 1 220px; }
+@media (max-width: 767.98px) {
+  .adrianjd .adrianjd-table thead { display: none; }
+  .adrianjd .adrianjd-table tr { display: block; border-bottom: 1px solid rgba(0,0,0,.125); padding: .5rem 0; }
+  .adrianjd .adrianjd-table td { display: block; border: 0; padding: .15rem 0; }
+  .adrianjd .adrianjd-table td.adrianjd-title-cell { display: flex; }
+  .adrianjd .adrianjd-table td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; }
+}
+
+/* Files inserted in articles */
+.adrianjd-embed-group { display: grid; gap: .5rem; margin: .75rem 0; }
+.adrianjd-embed-box { display: flex; align-items: center; gap: .75rem; padding: .6rem .8rem; border: 1px solid rgba(0,0,0,.15); border-radius: .375rem; background: rgba(0,0,0,.02); }
+.adrianjd-embed-box .adrianjd-ficon { flex: 0 0 auto; width: 28px; height: 34px; }
+.adrianjd-embed-body { flex: 1 1 auto; min-width: 0; }
+.adrianjd-embed-body .adrianjd-title { font-weight: 600; }
+.adrianjd-embed-meta { font-size: .85em; color: #555; }
+.adrianjd-embed-action { flex: 0 0 auto; }
+.adrianjd .adrianjd-ficon.adrianjd-ficon-inline { width: 16px; height: 20px; vertical-align: text-bottom; }
+.adrianjd-embed-list { list-style: none; padding-left: 0; }
+.adrianjd-embed-list li { margin: .2rem 0; }
+@media (max-width: 575.98px) {
+  .adrianjd-embed-box { flex-wrap: wrap; }
+  .adrianjd-embed-action { width: 100%; text-align: right; }
+}

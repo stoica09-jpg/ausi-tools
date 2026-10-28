@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_ADRIANJDOWNLOADS_CATEGORY_VIEW_DEFAULT_TITLE">
+		<message><![CDATA[COM_ADRIANJDOWNLOADS_CATEGORY_VIEW_DEFAULT_DESC]]></message>
+	</layout>
+	<fields name="request">
+		<fieldset name="request">
+			<field name="id" type="category" label="JCATEGORY" extension="com_adrianjdownloads" required="true" />
+		</fieldset>
+	</fields>
+	<fields name="params">
+		<fieldset name="basic" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
+			<field name="show_category_title" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_CAT_TITLE_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_subcategories" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_SUBCATS_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_cat_description" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_CAT_DESC_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_search" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_SEARCH_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="title_link" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_TITLE_LINK_LABEL" useglobal="true" validate="options">
+				<option value="download">COM_ADRIANJDOWNLOADS_TITLE_LINK_DOWNLOAD</option>
+				<option value="details">COM_ADRIANJDOWNLOADS_TITLE_LINK_DETAILS</option>
+			</field>
+			<field name="show_type_icon" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_TYPE_ICON_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_size" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_SIZE_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_date" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_DATE_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="show_count" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_SHOW_COUNT_LABEL" useglobal="true" validate="options">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field name="list_ordering" type="list" label="COM_ADRIANJDOWNLOADS_CONFIG_ORDERING_LABEL" useglobal="true" validate="options">
+				<option value="ordering">COM_ADRIANJDOWNLOADS_ORDER_MANUAL</option>
+				<option value="title">COM_ADRIANJDOWNLOADS_ORDER_TITLE</option>
+				<option value="newest">COM_ADRIANJDOWNLOADS_ORDER_NEWEST</option>
+				<option value="oldest">COM_ADRIANJDOWNLOADS_ORDER_OLDEST</option>
+				<option value="downloads">COM_ADRIANJDOWNLOADS_ORDER_DOWNLOADS</option>
+			</field>
+			<field name="list_limit" type="number" label="COM_ADRIANJDOWNLOADS_CONFIG_LIST_LIMIT_LABEL" useglobal="true" min="1" />
+		</fieldset>
+	</fields>
+</metadata>

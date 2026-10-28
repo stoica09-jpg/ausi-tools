@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" method="upgrade">
+	<name>Adrian jDownloads</name>
+	<packagename>adrianjdownloads</packagename>
+	<author>Adrian</author>
+	<creationDate>2026-10</creationDate>
+	<copyright>(C) 2026 Adrian. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.1.0</version>
+	<description><![CDATA[Adrian jDownloads: componenta de fișiere pentru descărcare + butonul „Fișier” din editor + pluginul care afișează fișierele în articole.]]></description>
+	<scriptfile>script.php</scriptfile>
+	<blockChildUninstall>true</blockChildUninstall>
+	<files>
+		<file type="component" id="com_adrianjdownloads">com_adrianjdownloads.zip</file>
+		<file type="plugin" id="adrianjdownloads" group="content">plg_content_adrianjdownloads.zip</file>
+		<file type="plugin" id="adrianjdownloads" group="editors-xtd">plg_editors-xtd_adrianjdownloads.zip</file>
+	</files>
+</extension>
