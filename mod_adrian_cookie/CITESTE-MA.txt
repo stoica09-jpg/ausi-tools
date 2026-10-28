@@ -1,0 +1,121 @@
+==========================================================================
+  ADRIAN COOKIE  (mod_adrian_cookie)  -  versiunea 1.0.0
+  Banner de consimțământ cookie (UE / GDPR) pentru Joomla 4 și Joomla 5
+==========================================================================
+
+CE FACE
+-------
+Afișează pe site un banner cu două butoane:
+  - "Accept toate"   -> salvează cookie-ul  adrian_cookie_consent = all
+  - "Doar esențiale" -> salvează cookie-ul  adrian_cookie_consent = essential
+Alegerea este păstrată 365 de zile. Cât timp cookie-ul există, bannerul
+nu mai apare. Bannerul intră pe ecran cu o animație și se adaptează
+pe telefon, tabletă și calculator.
+
+
+1. INSTALARE
+------------
+ 1. Intrați în administrarea Joomla (site.ro/administrator).
+ 2. Meniul  System -> Install -> Extensions.
+ 3. Tab-ul "Upload Package File".
+ 4. Trageți fișierul  mod_adrian_cookie.zip  în fereastră
+    (NU dezarhivați arhiva înainte).
+ 5. Apare mesajul "Installation of the module was successful".
+
+Actualizare: instalați pur și simplu noua arhivă peste cea veche,
+setările se păstrează.
+
+
+2. ACTIVARE PE SITE
+-------------------
+ 1. Content -> Site Modules -> butonul "New".
+ 2. Alegeți "Adrian Cookie".
+ 3. Completați un titlu (ex.: "Cookie") și puneți "Show Title" pe Hide.
+ 4. Position: alegeți orice poziție a template-ului (ex.: footer / debug).
+    Bannerul este fix pe ecran, deci poziția aleasă nu contează vizual.
+ 5. Status: Published.
+ 6. Tab-ul "Menu Assignment" -> "On all pages"  (IMPORTANT).
+ 7. Save & Close.
+
+
+3. SETĂRI (tab-ul "Module")
+---------------------------
+ - Mesaj cookie ............ textul din banner (editor). Gol = mesaj implicit.
+ - Text buton "Accept toate"   gol = text implicit.
+ - Text buton "Doar esențiale" gol = text implicit.
+ - URL politică cookie ...... link opțional (ex.: /politica-cookie).
+ - Text link politică ....... apare doar dacă ați completat URL-ul.
+ - Culoare fundal ........... implicit gri închis (#1f2937).
+ - Culoare text ............. implicit alb. Butonul "Accept" folosește
+                              culorile inversate, deci alegeți două culori
+                              cu contrast bun între ele.
+ - Poziție banner ........... Jos (lățime completă) / Sus (lățime completă) /
+                              Plutitor stânga-jos / Plutitor dreapta-jos.
+
+Limba: textele implicite apar în română sau engleză, după limba site-ului.
+
+
+4. UTILIZARE
+------------
+Vizitatorul vede bannerul la prima vizită, apasă un buton și bannerul
+dispare. La următoarele vizite nu mai apare (365 de zile sau până când
+vizitatorul șterge cookie-urile din browser).
+
+Link "Setări cookie" (redeschide bannerul) - puneți în meniu sau în footer
+un modul Custom cu codul:
+
+  <a href="#" onclick="AdrianCookie.reset(); return false;">Setări cookie</a>
+
+
+5. FOLOSIRE AVANSATĂ (pentru Google Analytics, Facebook Pixel etc.)
+------------------------------------------------------------------
+ATENȚIE: "Doar esențiale" NU blochează automat alte scripturi. Pentru a
+respecta GDPR, scripturile de statistică / marketing se încarcă doar dacă
+vizitatorul a ales "Accept toate":
+
+  <script>
+    function incarcaStatistici() {
+      // aici codul Google Analytics / alt script
+    }
+    // vizitatorul acceptase deja
+    if (window.AdrianCookie && AdrianCookie.get() === 'all') {
+      incarcaStatistici();
+    }
+    // vizitatorul acceptă acum
+    document.addEventListener('adrian-cookie-consent', function (e) {
+      if (e.detail.consent === 'all') { incarcaStatistici(); }
+    });
+  </script>
+
+În PHP (template sau alt modul):
+  $consimtamant = Joomla\CMS\Factory::getApplication()
+      ->getInput()->cookie->get('adrian_cookie_consent');   // 'all' / 'essential' / null
+
+
+6. PROBLEME FRECVENTE
+---------------------
+ - Bannerul nu apare:
+     * modulul nu e "Published" sau nu are "On all pages";
+     * ați apăsat deja un buton -> ștergeți cookie-ul adrian_cookie_consent
+       din browser sau folosiți o fereastră Incognito;
+     * goliți cache-ul Joomla (System -> Clear Cache).
+ - Bannerul apare la fiecare pagină: verificați că site-ul nu blochează
+   cookie-urile (ex.: setări de securitate ale browserului).
+
+
+7. DEZINSTALARE
+---------------
+System -> Manage -> Extensions -> căutați "Adrian Cookie" -> bifați ->
+butonul "Uninstall".
+
+
+CONȚINUTUL ARHIVEI
+------------------
+  mod_adrian_cookie.xml      manifestul (setările modulului)
+  mod_adrian_cookie.php      fișierul principal
+  tmpl/default.php           HTML-ul bannerului
+  media/joomla.asset.json    înregistrarea CSS/JS (WebAssetManager)
+  media/css/cookie.css       aspectul și animația
+  media/js/cookie.js         logica cookie-ului
+  language/en-GB, ro-RO      fișierele de limbă
+  CITESTE-MA.txt             acest fișier

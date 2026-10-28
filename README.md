@@ -16,10 +16,12 @@ through the Joomla WebAssetManager (`media/<module>/joomla.asset.json`).
 ./build.sh
 ```
 
-This creates `dist/mod_adrian_cookie.zip` and `dist/mod_adrian_accessibility_tools.zip`.
+This creates one zip per extension folder (`dist/mod_adrian_cookie.zip`,
+`dist/mod_adrian_accessibility_tools.zip`). Each zip includes the extension's `CITESTE-MA.txt`
+(Romanian guide: installation, settings, usage, troubleshooting).
 
 To zip by hand instead: open the module folder, select **its contents** (the `.xml` manifest,
-the `.php` file and the `tmpl`, `media`, `language` folders) and compress them. The `.xml`
+the `.php` file, `CITESTE-MA.txt` and the `tmpl`, `media`, `language` folders) and compress them. The `.xml`
 manifest must be at the root of the zip, not inside a sub-folder.
 
 ## Install

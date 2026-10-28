@@ -1,0 +1,122 @@
+==========================================================================
+  ADRIAN ACCESSIBILITY TOOLS  (mod_adrian_accessibility_tools)  -  v1.0.0
+  Instrumente de accesibilitate web (WCAG) pentru Joomla 4 și Joomla 5
+==========================================================================
+
+CE FACE
+-------
+Afișează un buton rotund plutitor cu simbolul universal de accesibilitate
+(omulețul în cerc). La apăsare se deschide un panou lateral cu:
+
+  - Mărime text (A- / A+)   80% ... 150%
+  - Inversare culori
+  - Monocrom (tonuri de gri)
+  - Contrast întunecat      (fundal negru, text alb, linkuri galbene)
+  - Contrast luminos        (fundal alb, text negru)
+  - Evidențiere linkuri
+  - Evidențiere titluri
+  - Font lizibil            (potrivit pentru persoane cu dislexie)
+  - Resetează tot
+
+Alegerile vizitatorului rămân salvate în browser și se aplică pe toate
+paginile, inclusiv la vizitele următoare.
+
+
+1. INSTALARE
+------------
+ 1. Intrați în administrarea Joomla (site.ro/administrator).
+ 2. Meniul  System -> Install -> Extensions.
+ 3. Tab-ul "Upload Package File".
+ 4. Trageți fișierul  mod_adrian_accessibility_tools.zip  în fereastră
+    (NU dezarhivați arhiva înainte).
+ 5. Apare mesajul "Installation of the module was successful".
+
+Actualizare: instalați noua arhivă peste cea veche, setările se păstrează.
+
+
+2. ACTIVARE PE SITE
+-------------------
+ 1. Content -> Site Modules -> butonul "New".
+ 2. Alegeți "Adrian Accessibility Tools".
+ 3. Completați un titlu (ex.: "Accesibilitate") și puneți "Show Title" pe Hide.
+ 4. Position: orice poziție a template-ului (ex.: footer / debug).
+    Butonul este fix pe ecran, deci poziția aleasă nu contează vizual.
+ 5. Status: Published.
+ 6. Tab-ul "Menu Assignment" -> "On all pages"  (IMPORTANT).
+ 7. Save & Close.
+
+
+3. SETĂRI (tab-ul "Module")
+---------------------------
+ Instrumente active (Da / Nu pentru fiecare):
+   Inversare culori, Monocrom, Contrast întunecat, Contrast luminos,
+   Evidențiere linkuri, Evidențiere titluri, Mărire/micșorare text,
+   Font lizibil, Buton resetare.
+   Instrumentele puse pe "Nu" nu apar în panou.
+
+ Poziție buton ...... Plutitor dreapta (implicit) / Plutitor stânga.
+                      Panoul se deschide din aceeași parte.
+ Culoare principală . culoarea butonului și a antetului panoului.
+                      Textul și pictogramele își aleg automat culoarea
+                      (alb sau negru) ca să fie lizibile.
+
+Limba: textele apar în română sau engleză, după limba site-ului.
+
+
+4. UTILIZARE (pentru vizitatori)
+--------------------------------
+ - Click pe butonul rotund  -> se deschide panoul.
+ - Click pe un instrument   -> se activează (devine colorat);
+   încă un click              -> se dezactivează.
+ - Contrast întunecat și Contrast luminos nu pot fi active simultan.
+ - A+ / A- schimbă mărimea textului cu câte 10%.
+ - "Resetează tot" readuce site-ul la aspectul normal.
+ - Închidere: butonul X, tasta Esc sau click în afara panoului.
+
+Tastatură: Tab ajunge la buton, Enter / Space îl deschide, Tab parcurge
+instrumentele, Esc închide. Cititoarele de ecran anunță fiecare schimbare.
+
+
+5. FOLOSIRE AVANSATĂ (pentru webmaster)
+---------------------------------------
+Instrumentele adaugă clase pe elementul <html>, pe care le puteți folosi
+în CSS-ul template-ului pentru ajustări:
+
+  adrian-invert            adrian-monochrome
+  adrian-dark-contrast     adrian-light-contrast
+  adrian-highlight-links   adrian-highlight-headings
+  adrian-readable-font
+
+Exemplu - ascundeți un banner decorativ în contrast întunecat:
+  html.adrian-dark-contrast .banner-decorativ { display: none; }
+
+Preferințele sunt salvate în localStorage, cheia "adrian_a11y_prefs".
+
+
+6. PROBLEME FRECVENTE
+---------------------
+ - Butonul nu apare: modulul nu e "Published" / nu are "On all pages";
+   goliți cache-ul (System -> Clear Cache) și reîncărcați cu Ctrl+F5.
+ - Butonul e acoperit de alt element plutitor (ex.: chat, "sus"):
+   mutați butonul în partea cealaltă din setarea "Poziție buton".
+ - Imaginile de fundal (puse din CSS) apar inversate la "Inversare culori":
+   este comportamentul normal al filtrului; pozele din pagină (<img>)
+   sunt readuse automat la culorile normale.
+
+
+7. DEZINSTALARE
+---------------
+System -> Manage -> Extensions -> căutați "Adrian Accessibility Tools" ->
+bifați -> butonul "Uninstall".
+
+
+CONȚINUTUL ARHIVEI
+------------------
+  mod_adrian_accessibility_tools.xml   manifestul (setările modulului)
+  mod_adrian_accessibility_tools.php   fișierul principal
+  tmpl/default.php                     HTML-ul butonului, panoului și iconița SVG
+  media/joomla.asset.json              înregistrarea CSS/JS (WebAssetManager)
+  media/css/accessibility.css          aspectul widget-ului și regulile instrumentelor
+  media/js/accessibility.js            deschidere panou, instrumente, salvare preferințe
+  language/en-GB, ro-RO                fișierele de limbă
+  CITESTE-MA.txt                       acest fișier
