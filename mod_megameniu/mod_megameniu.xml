@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade" version="3.10">
+	<name>mod_megameniu</name>
+	<author>Școala Gimnazială „Căpitan Aviator Mircea T. Bădulescu” Buzău</author>
+	<creationDate>2026-10</creationDate>
+	<copyright>(C) 2026</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail></authorEmail>
+	<authorUrl>https://scoala1buzau.ro</authorUrl>
+	<version>1.0.2</version>
+	<description>MOD_MEGAMENIU_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_megameniu">mod_megameniu.php</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<media destination="mod_megameniu" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+
+	<languages folder="language">
+		<language tag="ro-RO">ro-RO/ro-RO.mod_megameniu.ini</language>
+		<language tag="ro-RO">ro-RO/ro-RO.mod_megameniu.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_megameniu.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_megameniu.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="MOD_MEGAMENIU_FIELDSET_MENU">
+				<field name="menutype" type="menu" label="MOD_MEGAMENIU_FIELD_MENUTYPE_LABEL" required="true" />
+				<field name="startLevel" type="list" default="1" label="MOD_MEGAMENIU_FIELD_STARTLEVEL_LABEL">
+					<option value="1">J1</option>
+					<option value="2">J2</option>
+					<option value="3">J3</option>
+					<option value="4">J4</option>
+				</field>
+				<field name="endLevel" type="list" default="0" label="MOD_MEGAMENIU_FIELD_ENDLEVEL_LABEL">
+					<option value="0">JALL</option>
+					<option value="1">J1</option>
+					<option value="2">J2</option>
+					<option value="3">J3</option>
+					<option value="4">J4</option>
+					<option value="5">J5</option>
+				</field>
+				<field name="showAllChildren" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MEGAMENIU_FIELD_ALLCHILDREN_LABEL">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="columnsMode" type="list" default="auto" label="MOD_MEGAMENIU_FIELD_COLUMNSMODE_LABEL" description="MOD_MEGAMENIU_FIELD_COLUMNSMODE_DESC">
+					<option value="auto">MOD_MEGAMENIU_OPT_COLUMNS_AUTO</option>
+					<option value="list">MOD_MEGAMENIU_OPT_COLUMNS_LIST</option>
+				</field>
+				<field name="maxColumns" type="number" default="4" min="1" max="6" step="1" label="MOD_MEGAMENIU_FIELD_MAXCOLUMNS_LABEL" />
+				<field name="openOn" type="list" default="hover" label="MOD_MEGAMENIU_FIELD_OPENON_LABEL">
+					<option value="hover">MOD_MEGAMENIU_OPT_HOVER</option>
+					<option value="click">MOD_MEGAMENIU_OPT_CLICK</option>
+				</field>
+				<field name="navLabel" type="text" default="" label="MOD_MEGAMENIU_FIELD_NAVLABEL_LABEL" description="MOD_MEGAMENIU_FIELD_NAVLABEL_DESC" />
+			</fieldset>
+
+			<fieldset name="appearance" label="MOD_MEGAMENIU_FIELDSET_APPEARANCE">
+				<field name="barBg" type="color" default="#1d3557" label="MOD_MEGAMENIU_FIELD_BARBG_LABEL" />
+				<field name="barColor" type="color" default="#ffffff" label="MOD_MEGAMENIU_FIELD_BARCOLOR_LABEL" />
+				<field name="barHoverBg" type="color" default="#2b4c7e" label="MOD_MEGAMENIU_FIELD_BARHOVERBG_LABEL" />
+				<field name="barHoverColor" type="color" default="#ffffff" label="MOD_MEGAMENIU_FIELD_BARHOVERCOLOR_LABEL" />
+				<field name="activeBg" type="color" default="#e9c46a" label="MOD_MEGAMENIU_FIELD_ACTIVEBG_LABEL" />
+				<field name="activeColor" type="color" default="#1d1d1d" label="MOD_MEGAMENIU_FIELD_ACTIVECOLOR_LABEL" />
+				<field name="dropBg" type="color" default="#ffffff" label="MOD_MEGAMENIU_FIELD_DROPBG_LABEL" />
+				<field name="dropColor" type="color" default="#1f2937" label="MOD_MEGAMENIU_FIELD_DROPCOLOR_LABEL" />
+				<field name="dropHoverBg" type="color" default="#e8eef7" label="MOD_MEGAMENIU_FIELD_DROPHOVERBG_LABEL" />
+				<field name="dropHoverColor" type="color" default="#1d3557" label="MOD_MEGAMENIU_FIELD_DROPHOVERCOLOR_LABEL" />
+				<field name="dropBorder" type="color" default="#d6dde8" label="MOD_MEGAMENIU_FIELD_DROPBORDER_LABEL" />
+				<field name="fontSize" type="text" default="1rem" label="MOD_MEGAMENIU_FIELD_FONTSIZE_LABEL" description="MOD_MEGAMENIU_FIELD_FONTSIZE_DESC" />
+				<field name="fontFamily" type="text" default="inherit" label="MOD_MEGAMENIU_FIELD_FONTFAMILY_LABEL" />
+				<field name="uppercase" type="radio" default="0" class="btn-group btn-group-yesno" label="MOD_MEGAMENIU_FIELD_UPPERCASE_LABEL">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="alignment" type="list" default="left" label="MOD_MEGAMENIU_FIELD_ALIGNMENT_LABEL">
+					<option value="left">MOD_MEGAMENIU_OPT_LEFT</option>
+					<option value="center">MOD_MEGAMENIU_OPT_CENTER</option>
+					<option value="right">MOD_MEGAMENIU_OPT_RIGHT</option>
+					<option value="justify">MOD_MEGAMENIU_OPT_JUSTIFY</option>
+				</field>
+				<field name="dropWidth" type="text" default="auto" label="MOD_MEGAMENIU_FIELD_DROPWIDTH_LABEL" description="MOD_MEGAMENIU_FIELD_DROPWIDTH_DESC" />
+				<field name="radius" type="number" default="4" min="0" max="24" step="1" label="MOD_MEGAMENIU_FIELD_RADIUS_LABEL" />
+				<field name="shadow" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MEGAMENIU_FIELD_SHADOW_LABEL">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="sticky" type="radio" default="0" class="btn-group btn-group-yesno" label="MOD_MEGAMENIU_FIELD_STICKY_LABEL">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="mobile" label="MOD_MEGAMENIU_FIELDSET_MOBILE">
+				<field name="mobileBreakpoint" type="number" default="992" min="320" max="2000" step="1" label="MOD_MEGAMENIU_FIELD_BREAKPOINT_LABEL" description="MOD_MEGAMENIU_FIELD_BREAKPOINT_DESC" />
+				<field name="mobileMode" type="list" default="accordion" label="MOD_MEGAMENIU_FIELD_MOBILEMODE_LABEL">
+					<option value="accordion">MOD_MEGAMENIU_OPT_ACCORDION</option>
+					<option value="offcanvas">MOD_MEGAMENIU_OPT_OFFCANVAS</option>
+				</field>
+				<field name="mobileLabel" type="text" default="" label="MOD_MEGAMENIU_FIELD_MOBILELABEL_LABEL" description="MOD_MEGAMENIU_FIELD_MOBILELABEL_DESC" />
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" />
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

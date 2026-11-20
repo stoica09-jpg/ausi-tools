@@ -1,0 +1,46 @@
+✔ desktop: ordinea elementelor de nivel 1
+✔ desktop: butonul mobil e ascuns
+✔ hover: submeniul „Despre Instituție” se deschide
+✔ hover: submeniul are coloane (grid)
+✔ hover: aria-expanded=true
+✔ hover: submeniul se închide la ieșire
+✔ tastatură: focus pe butonul de submeniu
+✔ tastatură: Enter deschide submeniul
+✔ tastatură: Escape închide submeniul
+✔ tastatură: după Escape focusul revine pe buton
+✔ tastatură: ArrowDown deschide și duce focusul în submeniu
+✔ tastatură: submeniul se închide când focusul iese
+✔ aria-current pe „Secretariat”
+✔ ramura activă marcată pe nivelul 1
+✔ submeniul „Contact” rămâne în ecran
+✔ toate submeniurile rămân în ecran
+✔ „Proiecte” în ecran la 1024px
+✔ „Proiecte” în ecran la 1100px
+✔ clic în afară închide submeniurile
+✔ axe fără încălcări serioase/critice (desktop, submeniu deschis)
+✔ desktop: fără erori JavaScript
+✔ listă: submeniul simplu se deschide
+✔ listă: nivelul 3 apare lateral
+✔ listă: fără erori JavaScript
+✔ mobil: butonul „Meniu” vizibil
+✔ mobil: lista ascunsă inițial
+✔ mobil: lista apare la apăsare
+✔ mobil: aria-expanded pe buton
+✔ mobil: ramura activă deschisă
+✔ mobil: acordeon „Proiecte” se deschide
+✔ mobil: celălalt acordeon rămâne deschis
+✔ mobil: zone de atingere ≥ 44px
+✔ mobil: fără derulare orizontală
+✔ axe fără încălcări serioase/critice (mobil acordeon)
+✔ mobil: fără erori JavaScript
+✔ offcanvas: panoul apare
+✔ offcanvas: fundal semitransparent
+✔ offcanvas: butonul „Închide meniul” are focus
+✔ offcanvas: focusul rămâne în panou
+✔ offcanvas: Escape închide panoul
+✔ offcanvas: focus înapoi pe butonul „Meniu”
+✔ offcanvas: fără erori JavaScript
+✔ fără JS: submeniul se deschide la hover
+✔ mișcare redusă: fără tranziții
+
+44/44

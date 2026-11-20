@@ -1,0 +1,518 @@
+/*
+ * mod_megameniu — stiluri
+ * Toate culorile și dimensiunile vin din variabile --mm-* (setate din parametrii modulului).
+ * Toate selectoarele au prefixul .mm, ca să nu interfereze cu tema.
+ */
+
+.mm {
+	--mm-bar-bg: #1d3557;
+	--mm-bar-color: #ffffff;
+	--mm-bar-hover-bg: #2b4c7e;
+	--mm-bar-hover-color: #ffffff;
+	--mm-active-bg: #e9c46a;
+	--mm-active-color: #1d1d1d;
+	--mm-drop-bg: #ffffff;
+	--mm-drop-color: #1f2937;
+	--mm-drop-hover-bg: #e8eef7;
+	--mm-drop-hover-color: #1d3557;
+	--mm-drop-border: #d6dde8;
+	--mm-drop-width: 16rem;
+	--mm-font-size: 1rem;
+	--mm-font-family: inherit;
+	--mm-radius: 4px;
+	--mm-focus: #ffbf47;
+	--mm-focus-inner: #1d1d1d;
+
+	position: relative;
+	z-index: 1000;
+	font-family: var(--mm-font-family);
+	font-size: var(--mm-font-size);
+	line-height: 1.35;
+}
+
+.mm *,
+.mm *::before,
+.mm *::after {
+	box-sizing: border-box;
+}
+
+.mm-sticky {
+	position: sticky;
+	top: 0;
+	z-index: 1020;
+}
+
+/* Text doar pentru cititoare de ecran */
+.mm .mm-sr {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip: rect(0 0 0 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+.mm ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.mm .mm-img {
+	display: inline-block;
+	max-height: 1.5em;
+	width: auto;
+	margin-right: .4em;
+	vertical-align: middle;
+}
+
+/* ---------- Bara principală ---------- */
+
+.mm-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	background: var(--mm-bar-bg);
+	border-radius: var(--mm-radius);
+}
+
+.mm-align-center .mm-list { justify-content: center; }
+.mm-align-right .mm-list { justify-content: flex-end; }
+.mm-align-justify .mm-l1 { flex: 1 1 auto; justify-content: center; }
+
+.mm-l1 {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+}
+
+.mm-l1 > .mm-link,
+.mm-l1 > .mm-heading,
+.mm-l1 > .mm-top-btn {
+	display: flex;
+	align-items: center;
+	gap: .4em;
+	padding: .85em 1em;
+	color: var(--mm-bar-color);
+	font: inherit;
+	font-weight: 600;
+	text-decoration: none;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+}
+
+.mm-l1 > .mm-link + .mm-sub-toggle {
+	margin-left: -.6em;
+}
+
+.mm-sub-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2em;
+	padding: 0 .55em;
+	color: var(--mm-bar-color);
+	font: inherit;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+}
+
+.mm-upper .mm-l1 > .mm-link,
+.mm-upper .mm-l1 > .mm-heading,
+.mm-upper .mm-l1 > .mm-top-btn {
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+
+.mm-caret {
+	display: inline-block;
+	width: .5em;
+	height: .5em;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: translateY(-25%) rotate(45deg);
+	transition: transform .15s ease;
+}
+
+.mm-open > .mm-sub-toggle .mm-caret {
+	transform: translateY(15%) rotate(-135deg);
+}
+
+.mm-l1:hover,
+.mm-l1.mm-open,
+.mm-l1:focus-within {
+	background: var(--mm-bar-hover-bg);
+}
+
+.mm-l1:hover > .mm-link,
+.mm-l1:hover > .mm-sub-toggle,
+.mm-l1:hover > .mm-top-btn,
+.mm-l1.mm-open > .mm-link,
+.mm-l1.mm-open > .mm-sub-toggle,
+.mm-l1.mm-open > .mm-top-btn,
+.mm-l1:focus-within > .mm-link,
+.mm-l1:focus-within > .mm-sub-toggle,
+.mm-l1:focus-within > .mm-top-btn {
+	color: var(--mm-bar-hover-color);
+}
+
+.mm-l1.mm-active {
+	background: var(--mm-active-bg);
+}
+
+.mm-l1.mm-active > .mm-link,
+.mm-l1.mm-active > .mm-heading,
+.mm-l1.mm-active > .mm-sub-toggle,
+.mm-l1.mm-active > .mm-top-btn {
+	color: var(--mm-active-color);
+}
+
+/* ---------- Focus vizibil (WCAG 2.4.7) ---------- */
+
+.mm a:focus-visible,
+.mm button:focus-visible {
+	outline: 3px solid var(--mm-focus);
+	outline-offset: -3px;
+	box-shadow: inset 0 0 0 5px var(--mm-focus-inner);
+}
+
+/* ---------- Panouri derulante ---------- */
+
+.mm-drop {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1010;
+	display: none;
+	min-width: var(--mm-drop-width);
+	padding: .4em 0;
+	color: var(--mm-drop-color);
+	background: var(--mm-drop-bg);
+	border: 1px solid var(--mm-drop-border);
+	border-radius: 0 0 var(--mm-radius) var(--mm-radius);
+	text-transform: none;
+	letter-spacing: normal;
+}
+
+.mm-shadow .mm-drop,
+.mm-shadow .mm-fly {
+	box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .15);
+}
+
+/* Fără JavaScript: deschidere la hover și focus */
+.mm:not(.mm-js) .mm-l1:hover > .mm-drop,
+.mm:not(.mm-js) .mm-l1:focus-within > .mm-drop {
+	display: block;
+}
+
+.mm:not(.mm-js) .mm-l1:hover > .mm-drop.mm-mega,
+.mm:not(.mm-js) .mm-l1:focus-within > .mm-drop.mm-mega {
+	display: grid;
+}
+
+/* Cu JavaScript: starea e controlată prin .mm-open */
+.mm-js .mm-l1.mm-open > .mm-drop {
+	display: block;
+}
+
+.mm-js .mm-l1.mm-open > .mm-drop.mm-mega {
+	display: grid;
+}
+
+.mm-mega {
+	grid-template-columns: repeat(var(--mm-cols, 3), minmax(12rem, max-content));
+	gap: .25em 1em;
+	width: max-content;
+	max-width: calc(100vw - 16px);
+	padding: .75em;
+}
+
+.mm-mega .mm-col {
+	max-width: 22rem;
+}
+
+.mm-col-title > .mm-link,
+.mm-col-title > .mm-heading {
+	display: block;
+	padding: .55em .75em;
+	color: var(--mm-drop-color);
+	font-weight: 700;
+	text-decoration: none;
+	border-bottom: 2px solid var(--mm-drop-border);
+}
+
+.mm-col-title > .mm-link:hover,
+.mm-col-title > .mm-link:focus-visible {
+	color: var(--mm-drop-hover-color);
+	background: var(--mm-drop-hover-bg);
+}
+
+.mm-sublist .mm-link,
+.mm-sublist .mm-heading {
+	display: block;
+	padding: .5em .9em;
+	color: var(--mm-drop-color);
+	text-decoration: none;
+}
+
+.mm-sublist .mm-heading {
+	font-weight: 700;
+}
+
+.mm-sublist .mm-link:hover,
+.mm-sublist .mm-link:focus-visible {
+	color: var(--mm-drop-hover-color);
+	background: var(--mm-drop-hover-bg);
+}
+
+.mm-drop [aria-current="page"],
+.mm-drop .active > .mm-link {
+	font-weight: 700;
+	color: var(--mm-drop-hover-color);
+	box-shadow: inset 4px 0 0 var(--mm-active-bg);
+}
+
+/* Niveluri mai adânci în coloane: indentate */
+.mm-mega .mm-fly {
+	padding-left: .9em;
+	border-left: 1px solid var(--mm-drop-border);
+	margin-left: .9em;
+}
+
+/* Mod listă: submeniuri laterale (flyout) */
+.mm-simple .mm-has-fly {
+	position: relative;
+}
+
+.mm-simple .mm-has-fly > .mm-link::after,
+.mm-simple .mm-has-fly > .mm-heading::after {
+	content: "";
+	float: right;
+	width: .45em;
+	height: .45em;
+	margin: .45em 0 0 .75em;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: rotate(-45deg);
+}
+
+.mm-simple .mm-fly {
+	position: absolute;
+	top: -.4em;
+	left: 100%;
+	display: none;
+	min-width: var(--mm-drop-width);
+	padding: .4em 0;
+	background: var(--mm-drop-bg);
+	border: 1px solid var(--mm-drop-border);
+	border-radius: var(--mm-radius);
+}
+
+.mm-simple .mm-has-fly:hover > .mm-fly,
+.mm-simple .mm-has-fly:focus-within > .mm-fly {
+	display: block;
+}
+
+.mm-simple.mm-drop-right .mm-fly {
+	right: 100%;
+	left: auto;
+}
+
+/* ---------- Buton meniu mobil ---------- */
+
+.mm-toggle {
+	display: none;
+	align-items: center;
+	gap: .6em;
+	width: 100%;
+	min-height: 44px;
+	padding: .6em 1em;
+	color: var(--mm-bar-color);
+	font: inherit;
+	font-weight: 600;
+	background: var(--mm-bar-bg);
+	border: 0;
+	border-radius: var(--mm-radius);
+	cursor: pointer;
+}
+
+.mm-toggle-icon,
+.mm-toggle-icon::before,
+.mm-toggle-icon::after,
+.mm-toggle-icon > span {
+	display: block;
+	width: 1.4em;
+	height: 2px;
+	background: currentColor;
+	border-radius: 1px;
+}
+
+.mm-toggle-icon {
+	position: relative;
+	height: 1.1em;
+	background: transparent;
+}
+
+.mm-toggle-icon::before,
+.mm-toggle-icon::after,
+.mm-toggle-icon > span {
+	position: absolute;
+	left: 0;
+	content: "";
+}
+
+.mm-toggle-icon::before { top: 0; }
+.mm-toggle-icon > span { top: calc(50% - 1px); }
+.mm-toggle-icon::after { bottom: 0; }
+
+.mm-close {
+	display: flex;
+	align-items: center;
+	gap: .5em;
+	width: 100%;
+	min-height: 44px;
+	padding: .6em 1em;
+	color: var(--mm-bar-color);
+	font: inherit;
+	font-weight: 600;
+	background: rgba(0, 0, 0, .2);
+	border: 0;
+	cursor: pointer;
+}
+
+.mm-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 1029;
+	background: rgba(0, 0, 0, .5);
+}
+
+/* ---------- Mobil (clasa pusă de JavaScript sub pragul setat) ---------- */
+
+.mm-is-mobile .mm-toggle {
+	display: flex;
+}
+
+.mm-is-mobile .mm-list {
+	display: none;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	margin-top: .25em;
+}
+
+.mm-is-mobile.mm-mobile-open .mm-list {
+	display: flex;
+}
+
+.mm-is-mobile .mm-l1 {
+	flex-wrap: wrap;
+	border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.mm-is-mobile .mm-l1 > .mm-link,
+.mm-is-mobile .mm-l1 > .mm-heading,
+.mm-is-mobile .mm-l1 > .mm-top-btn {
+	flex: 1 1 auto;
+	min-height: 44px;
+	text-align: left;
+}
+
+.mm-is-mobile .mm-sub-toggle {
+	min-width: 44px;
+	min-height: 44px;
+	margin-left: 0;
+}
+
+.mm-is-mobile .mm-drop,
+.mm-is-mobile .mm-mega,
+.mm-is-mobile .mm-fly {
+	position: static;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.mm-is-mobile .mm-l1.mm-open > .mm-drop.mm-mega {
+	display: block;
+}
+
+.mm-is-mobile .mm-simple .mm-fly {
+	display: block;
+	padding-left: 1em;
+}
+
+.mm-is-mobile .mm-simple .mm-has-fly > .mm-link::after,
+.mm-is-mobile .mm-simple .mm-has-fly > .mm-heading::after {
+	display: none;
+}
+
+.mm-is-mobile .mm-sublist .mm-link,
+.mm-is-mobile .mm-sublist .mm-heading,
+.mm-is-mobile .mm-col-title > .mm-link,
+.mm-is-mobile .mm-col-title > .mm-heading {
+	min-height: 44px;
+	display: flex;
+	align-items: center;
+}
+
+/* Panou lateral (offcanvas) */
+.mm-is-mobile.mm-offcanvas .mm-list {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1030;
+	display: flex;
+	width: min(85vw, 22rem);
+	margin: 0;
+	overflow-y: auto;
+	border-radius: 0;
+	transform: translateX(-100%);
+	visibility: hidden;
+	transition: transform .2s ease, visibility 0s linear .2s;
+}
+
+.mm-is-mobile.mm-offcanvas.mm-mobile-open .mm-list {
+	transform: none;
+	visibility: visible;
+	transition: transform .2s ease, visibility 0s;
+}
+
+.mm-is-mobile.mm-offcanvas .mm-l1 {
+	flex: 0 0 auto;
+}
+
+.mm-close-li {
+	display: none;
+}
+
+.mm-is-mobile.mm-offcanvas .mm-close-li {
+	display: block;
+}
+
+/* ---------- Mișcare redusă ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+	.mm *,
+	.mm *::before,
+	.mm *::after {
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
+/* ---------- Tipărire ---------- */
+
+@media print {
+	.mm {
+		display: none;
+	}
+}
